@@ -3,10 +3,10 @@
     <head>
         <title>Raake Open Solutions</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <link href="styles.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
 		<div class="container">
@@ -19,19 +19,42 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div id="navbarMenu" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav ml-auto">               
-						<li class="nav-item">
-							<a class="nav-link" href="palvelut.html">Palvelut</a>
+					<ul class="nav navbar-nav ml-auto"> 
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="contentloggerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Content Logging Solution</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="contentloggerDropdown">
+								<li><a class="dropdown-item" href="contentlogger_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="contentlogger.html">ContentLogger</a></li>
+								<li><a class="dropdown-item" href="connectionnode.html">ConnectionNode</a></li>
+								<li><a class="dropdown-item" href="contentloggerapi.html">ContentLoggerAPI</a></li>
+								<li><a class="dropdown-item" href="contentorganizer.html">ContentOrganizer</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="contentloggerwebui">ContentLogger WebUI</a></li>
+							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="avoinkehittaminen.html">Avoin kehittäminen</a>
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="imotDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Information Model of Things</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="imotDropdown">
+								<li><a class="dropdown-item" href="imot_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model Browser</a></li>
+								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model WebUI</a></li>
+							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="avoinlahdekoodi.html">Avoin lähdekoodi</a>
-						</li>   
-						<li class="nav-item">
-							<a class="nav-link" href="avoinlaitteisto.html">Avoin laitteisto</a>
-						</li> 
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="integrationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Integration</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="integrationDropdown">
+								<li><a class="dropdown-item" href="integration_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="mariadb.html">MariaDB</a></li>
+								<li><a class="dropdown-item" href="grfana.html">Grafana</a></li>
+							</ul>
+						</li>
+						
+						
 					</ul>
 				</div>
 			</nav>
@@ -39,8 +62,80 @@
 			<div id="section1">
 				<br>
 				<br>
-				<p class="quote">"Useimmat innovaatiot epäonnistuvat.</p>
-				<p class="quote">Ja yritykset, jotka eivät innovoi katoavat."</p>
+				<div class="row">
+					<div class="col-sm-12">
+						<p class="basic_text">
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">					
+					<div class="col-sm-12">
+						<h1>Versatility through simplicity</h1>
+						<p class="basic_text">
+							Software solutions are often very versatility. There are many different modules that communicate with each other. Many different interfaces are needed, the same things are done in several different places, changes affect everywhere, etc.
+						</p>
+						<p class="basic_text">
+							An open software solution allows for the multidimensionality of software solutions, but it does through simplicity.
+						</p>
+						<img src="rlog_8h__dep__incl.png" class="img-thumbnail" alt="System complexity">
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>Static vs. Dynamic</h1>
+						<p class="basic_text">
+							The picture below shows a basic query, where Module1 asks from Module2 for the value of the temperature sensor. In the case of this example, Module2 return json will return all the data that Module1 needs to process the data.
+						</p>
+						<img src="images/BasicQuery.png" class="rounded mx-auto d-block" alt="Basic Query">
+						<br>
+						<p class="basic_text">
+							When we look at the returned json content, we notice that only the number 19.67 is variable data. All other information is permanent, which means that this information only needs to be transmitted once.
+						</p>
+						<img src="images/BasicQueryDimmed.png" class="rounded mx-auto d-block" alt="Basic Query Static vs. Dynamic">
+						<br>
+						<p class="basic_text">
+							The number 19.67 is dynamic data, which in the case of the example is a string. When computer needs to process the number, it must converts to the number format so that the computer can understand it, such as float or double. The value range of a float number is 1.175494351 E - 38 to 3.402823466 E + 38. If we want to store or transfer a float number, we need to handle at least 14 bytes. But...
+						</p>
+						<br>
+						<p class="basic_text">
+							A float number only needs 4 bytes for the computer, which means that only this number of bytes (32 bits) is needed if we keep dynamic and static data separate.
+						</p>
+						<br>
+						<br>
+						<p class="basic_text">
+							In a data model-based structure, static information is stored in a data model. Program modules load all the necessary information for their operation when they start execution (only once). This enables an extremely simple interface which can be use to transfer dynamic content. All the information explaining the dynamic content is separate, so the same interface structure can be used to transfer almost all data types (int, text, image, etc.).
+						</p>
+						<img src="images/BasicIMQuery.png" class="rounded mx-auto d-block" alt="Basic information model based query">
+						
+						<br>
+						<p class="basic_text">
+							In an informatio model-based solution, static information is not transferred with each query, which enables the utilization of dynamic information in new ways. This is possible because new innovations are often incremental. Existing things are combined in new ways. In an information model-based solution, a new purpose of use does not set new requirements for the module who is generating dynamic data.
+						</p>
+						<img src="images/MultipleIMQueries.png" class="rounded mx-auto d-block" alt="Basic information model based query">
+						
+						
+						<br>
+						<p class="basic_text">
+						</p>
+						
+						<br>
+						<p class="basic_text">
+						</p>
+						
+						
+					</div>
+				</div>
+				
+				
+				<br>
+				<br>
+				
+				
+				<p class="quote">"Most innovations fail. </p>
+				<p class="quote">And companies that don't innovate die."</p>
 				<p class="quote">---Henry Chesbrough--- </p>
 				<br>
 				<div class="row">
@@ -50,71 +145,37 @@
 				
 				<div class="row">
 					<div class="col-sm-6">
-						<img src="slogan.png" alt="Slogan" style="width: 400px;"> 
+						<p class="basic_text">People who communicate at the interface of structural gaps are critical for organizational learning and creativity. It is interesting that innovations are not only born in a familiar and safe environment, but in order to create innovations, distance is also needed, which creates differences in ways of thinking, knowledge bases, concepts, expertise and so on. In a more open development activity, new types of distances inevitably arise, which can be a significant factor in improving the productivity of development activities.</p>
 					</div>
 					<div class="col-sm-6">
-						<img src="silma.jpg" alt="Logo" style="width: 400px;"> 
+						<img src="gap-ge7aec9564_1280.png" alt="Logo" style="width: 400px;"> 
 					</div>
 				</div> 
 				<div class="row">
-					<div class="col-sm-6"><br></div>
-					<div class="col-sm-6"><br></div>
+					<div class="col-sm-6">
+						<img src="ContentLoggerOverview-Thing.png" alt="Logo"> 
+						<p class="basic_text">Järjestelmät muodostuvat toisiinsa kytkeytyneistä asioista. Asioilla on ominaisuuksia. Järjestelmän toiminnan kannalta on tärkeää kyetä hallitsemaan tätä asioiden muodostamaan kokonaisuutta. Avoimessa ratkaisussa kokonaisuuden hallinnasta tehdään hyvin yksinkertaista, jolloin koko järjestelmän hallinnasta tulee yksinkertaisempaa.</p>
+						<p class="basic_text">Avoimessa ratkaisussa tieto jakautuu staattiseen ja dynaamiseen tietoon. Koska staattinen tieto ei muutu ohjelman suorituksen aikana, sitä on turha siirtää ohjelmamodiilista toiseen. Tämä tarkoittaa, että rajapintojen yli siirtyy raakatietoa jonka tulkintaa ohjelma tarvitsee staattista tietoa. Ohjelmamoduuli lataa staattisen tiedon käynnistyessään. Tältä osin staattinen tieto onkin kuin ohjelma moduulin konfigutaatiotiedosto.</p>
+						<p class="basic_text">Avoimessa ratkaisussa staattinen tieto ei kuitenkaan ole pelkästään yhtä ohjelmamoduulia varten. Samaa tietoa voidaan katsoa lukemattomista eri näkökulmista. Esimerkiksi lämpötilatieto voi olla osa lämpömittariohjelmaa, se voi olla osa tutkielmaa, se voi olla osa rakennuksen olosuhdetietoja, yms. Avoimessa ratkaisussa sama asia voidaankin liittää minkä tahansa tietorakenteen osaksi.</p>
+					</div>
+					<div class="col-sm-6">
+						<img src="ContentLoggerOverview-Thing.png" class="img-thumbnail" alt="Thing">
+						<p class="basic_text">Systems consist of interconnected things. Things have properties. In terms of the operation of the system, it is important to be able to manage this whole of things. In an open solution, the management of the whole is made very simple, which makes the management of the entire system simpler.</p>
+						<p class="basic_text">In an open solution, information is divided into static and dynamic information. Since static data does not change during program execution, it is unnecessary to transfer it from one program module to another. This means that raw data is transferred across the interfaces, which the program needs static data to interpret. The program module loads static information when it starts. In this respect, static information is like the configuration file of a program module.</p>
+						<p class="basic_text">However, in an open solution, static information is not only for one program module. The same information can be viewed from countless different perspectives. For example, temperature data can be part of a thermometer program, it can be part of a thesis, it can be part of building condition data, etc. In an open solution, the same thing can be connected as part of any data structure.</p>
+					</div>
 				</div>
 
 				
-				<br>
-				<br>
-				<h1>We are open</h1>
-				<br>
-				<div class="section2">
-					<br>
-					<div class="row">
-						<div class="col-sm-4  d-flex justify-content-center">
-							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" src="kehittaminen.png" alt="Avoin kehittäminen">
-								<div class="card-body d-flex flex-column">
-									<h5 class="card-title">Avoin kehittäminen</h5>
-									<p class="card-text">Onko mahdollista pienentää tuotekehityskustannuksia avaamalla kehitystyötä?</p>
-									<button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="location.href = 'avoinkehittaminen.html';">Lisätietoja</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 d-flex justify-content-center">	
-							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" src="lahdekoodi.png" alt="Avoin lähdekoodi">
-								<div class="card-body d-flex flex-column">
-									<h5 class="card-title">Avoin lähdekoodi</h5>
-									<p class="card-text">Miksi tehdä kaikki itse, jos tarjolla on valmiita ratkaisuja?</p>
-									<button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="location.href = 'avoinlahdekoodi.html';">Lisätietoja</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 d-flex justify-content-center">						
-							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" src="hardware.png" alt="Avoin laitteisto">
-								<div class="card-body d-flex flex-column">
-									<h5 class="card-title">Avoin laitteisto</h5>
-									<p class="card-text">Mitä tehdä jos laitteiston toimittaja ei kykene toimittamaan laitteitamme?</p>
-									<button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="location.href = 'avoinlaitteisto.html';">Lisätietoja</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-sm-12">
-						<img src="menestys.jpg" alt="Logo" style="width: 100%;"> 
-					</div>
-				</div>
 
 			</div>
 			<br>
 			<br>
 		</div>
-         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
 
     </body>
 </html> 
