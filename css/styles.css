@@ -1,0 +1,80 @@
+body {
+	background-color: #ffffff; /*rgb(248, 249, 250);*/
+}
+h1 {
+    text-align: left;
+	/* font-family: Comic Sans MS; */
+	font-weight: bold;
+	font-size: 40pt;
+}
+
+h2 {
+    text-align: left;
+	/* font-family: Comic Sans MS; */
+	font-size: 35pt;
+}
+
+h3 {
+    text-align: left;
+	/* font-family: Comic Sans MS; */
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+.quote {
+	font-style: italic;
+}
+
+.basic_text {
+	text-align: left;
+	/* font-family: Comic Sans MS; */
+	/* text-shadow: 2px 2px #dddddd; */
+}
+
+.diquotetable {
+	display: table;
+}
+.diquote {
+	text-align: center;
+	font-family: Comic Sans MS;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.card {
+	height: 100%;
+}
+
+button.btn {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+	background-color: #ffffff;
+}
+
+.section2 {
+	background-color: rgb(248, 249, 250);
+}
+
+.col-sm-4 {
+}
+
+footer {
+	background-color: rgb(248, 249, 250);
+}
+
+pre {
+	width: 100%;
+}
+
+code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 10px;
+  
+}
+ 
