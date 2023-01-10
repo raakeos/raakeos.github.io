@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <title>Raake Open Solutions</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light bg-light navbar-inverse navbar-fixed-top">
+				<a class="navbar-brand" href="index.html">
+					<img src="RaakeLogo.png" alt="Logo" style="width: 200px;">   
+				</a>
+				
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navbarMenu" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav ml-auto"> 
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="contentloggerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Content Logging Solution</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="contentloggerDropdown">
+								<li><a class="dropdown-item" href="contentlogger_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="contentlogger.html">ContentLogger</a></li>
+								<li><a class="dropdown-item" href="connectionnode.html">ConnectionNode</a></li>
+								<li><a class="dropdown-item" href="contentloggerapi.html">ContentLoggerAPI</a></li>
+								<li><a class="dropdown-item" href="contentorganizer.html">ContentOrganizer</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="contentloggerwebui">ContentLogger WebUI</a></li>
+							</ul>
+						</li>
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="imotDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Information Model of Things</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="imotDropdown">
+								<li><a class="dropdown-item" href="imot_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="imot/html/index.html" target="_blank">IMoT c++ source</a></li>
+								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model Browser</a></li>
+								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model WebUI</a></li>
+							</ul>
+						</li>
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="integrationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Integration</a>							
+						
+							<ul class="dropdown-menu" aria-labelledby="integrationDropdown">
+								<li><a class="dropdown-item" href="integration_overview.html">Overview</a></li>
+								<li><a class="dropdown-item" href="mariadb.html">MariaDB</a></li>
+								<li><a class="dropdown-item" href="grfana.html">Grafana</a></li>
+							</ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+			</nav>
+			
+			<div id="section1">
+				<br>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<p class="basic_text">
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">					
+					<div class="col-sm-12">
+						<h1>Information about all kinds of things</h1>
+						<p class="basic_text">
+							If we want to use our current work as efficiently as possible in the future, we should avoid decisions that close the doors to the future. But, it is almost impossible to know in advance what things we will need in the future, what features are related to things and how things are related to each other.
+						</p>
+						<p class="basic_text">
+							The open information model of things offers a standardized way to describe things, the properties of things and the connections between things. The data model is based on the idea that a simple structure is the only way to describe unlimited options. In the same way that genes contain the building instructions for all organic things, IMoT contains a description of the implemented solution. IMoT consists of a combination of three basic structures.
+						</p>
+						<ul>
+							<li>Things</li>
+							<li>Features of things</li>
+							<li>Hierarchies of things</li>
+						</ul>
+						<br>
+						<img src="images/IMoTOverview.png" class="rounded mx-auto d-block" alt="IMoT overview">
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="row">					
+					<div class="col-sm-12">
+						<h2>Thing</h2>
+						<p class="basic_text">
+							Information systems do not only consist of code, but systems include people, buildings, definitions, processes, organizations, marketing, products, etc. The information model of such a set cannot have structures that exist only within a certain subset. All structures related to specific things must be removed from the information model.
+						</p>
+						<p class="basic_text">
+							In the data model of things, the basic unit is the thing. The thing can be almost anything, but each thing is its own individual. This means that each thing must be able to be individualized. Normally things has name also. In the data model of things, things only have two attributes, name and UUID.
+						</p>
+						<br>
+						<code>
+							&lt;thing name="Root Level Thing" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a"&gt;
+						</code>
+						<br>
+						<h3>UUID</h3>
+						<p class="basic_text">
+						<q class="quote">
+							A universally unique identifier (UUID) is a 128-bit label used for information in computer systems. The term globally unique identifier (GUID) is also used.
+						</q><br><br>
+						<q class="quote">
+							When generated according to the standard methods, UUIDs are, for practical purposes, unique. Their uniqueness does not depend on a central registration authority or coordination between the parties generating them, unlike most other numbering schemes. While the probability that a UUID will be duplicated is not zero, it is generally considered close enough to zero to be negligible.[2][3]
+						</q><br><br>
+						<q class="quote">
+							Thus, anyone can create a UUID and use it to identify something with near certainty that the identifier does not duplicate one that has already been, or will be, created to identify something else. Information labeled with UUIDs by independent parties can therefore be later combined into a single database or transmitted on the same channel, with a negligible probability of duplication.
+						</q><br>
+						
+						<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique identifier</a>
+
+					
+						
+						<br>
+						<h2>Feature</h2>
+						<p class="basic_text">
+							In the open information model of things, each thing must have a name and a uuid. In addition to this, a thing can have an unlimited number of features. The features can be of very different types, such as the length of the pen, the ip address of the rest interface, the location of the sensor in the room, etc. Each feature has a name, a value and a type of value.
+						</p>
+						<br>
+						<p class="basic_text">
+							The name is needed so we can process the correct feature. The value of the feature can be empty in the information model, but then the value will probably be changed in the program. This kind of feature-value is dynamic information and the information explaining the value can be found in the feature-type. For example, a temperature sensor can send over tcp/ip protocol four bytes of data. The receiver knows that it is a float number, because the necessary information can be found in the data model (in the features of the thing).
+						</p>
+						<br>
+						<pre>
+							<code>
+&lt;feature name="ThingType" type="text" value="ContentTag"/&gt;
+&lt;feature name="Value" type="int8" value=""/&gt;
+&lt;feature name="Endianness" type="text" value="BIG"/&gt;
+&lt;feature name="StartByte" type="uint64" value="5"/&gt;
+&lt;feature name="Length" type="uint64" value="1"/&gt;
+&lt;feature name="Bit" type="int16" value="0"/&gt;
+							</code>
+						</pre>
+						
+						<h2>Hierarchy</h2>
+						<p class="basic_text">
+							When handling with things, you also need to know the connections between different things. For example, one thing can explain the value to be transferred, another thing explains the block formed by several values, Third thing explains the query interface, etc. On the other hand, the same transferable value can be part of the building's hierarchy. The value of the temperature sensor is part of the temperature sensor, which is part of the room, which is part of the building, etc.
+						</p>
+						<br>
+						<p class="basic_text">
+							The open information model of things has the concept of hierarchy, which allows things to be connected to different structures. Each hierarchy level has a name, a hierarchy uuid,  a parent uuid, a thing uuid, and an order. The Hierarchy uuid is the same kind of uuid as the uuid of thing. It is a universally unique value, which enables hierarchy structures to be transferred from one system to another. The Parent uuid refers to the hierarchy uuid, which means that each hierarchy level can have an unlimited number of children. Each hierarchy level has one parent only. A thing can be connected to the hierarchy level by defining the hierarchy's thing uuid. Because the same thing can be connected to several hierarchies, it is possible to have several different perspectives to same thing. One perspective can be the software configuration perspective, another can be the maintenance perspective, the third can be the research report perspective, etc. Hierarchies on the same level can be placed in different orders. In this way it is possible to execute different things in specific order.
+						</p>
+						<br>
+						<code>
+							&lt;hierarchy name="Root Level Hierarchy" hierarchyuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" parentuuid="00000000-0000-0000-0000-000000000000" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a" order="0"/&gt;
+						</code>
+						<p class="basic_text">
+						</p>
+						<br>
+						<h2>Example</h2>
+						<img src="images/imot_example.png" class="rounded mx-auto d-block" alt="IMoT example">
+						<h3>XML</h3>
+						<pre>
+							<code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;imot&gt;
+	&lt;hierarchies&gt;
+		&lt;hierarchy name="Root Level Hierarchy" hierarchyuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" parentuuid="00000000-0000-0000-0000-000000000000" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a" order="0"/&gt;
+				&lt;hierarchy name="Example Hierarchy 1" hierarchyuuid="309b6e78-8ee5-47b9-b01f-a6b3dd1325c1" parentuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" thinguuid="b498cf67-7035-4fe9-b746-707a5e146bc5" order="0"/&gt;
+				&lt;hierarchy name="Example Connection Node Hierarchy" hierarchyuuid="994571c4-f251-4e2e-b646-e85009e0ccfb" parentuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" thinguuid="779515c8-17dd-4c23-af66-fea2d4f59f3c" order="1"/&gt;
+	&lt;/hierarchies&gt;
+	
+	&lt;things&gt;
+		&lt;thing name="Root Level Thing" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a"&gt;
+			&lt;feature name="ThingType" type="text" value="ExampleRootLevelThing"/&gt;
+		&lt;/thing&gt;
+		
+		&lt;thing name="Example Thing 1" thinguuid="b498cf67-7035-4fe9-b746-707a5e146bc5"&gt;
+			&lt;feature name="ThingType" type="text" value="ExampleThing"/&gt;
+			&lt;feature name="Version" type="text" value="0.1"/&gt;
+		&lt;/thing&gt;
+		
+		&lt;thing name="Example Connection Node Thing" thinguuid="779515c8-17dd-4c23-af66-fea2d4f59f3c"&gt;
+			&lt;feature name="ThingType" type="text" value="ConnectionNode"/&gt;
+			&lt;feature name="IPAddress" type="text" value="192.168.1.2"/&gt;
+			&lt;feature name="LoggingFrequency" type="uint64" value="5000"/&gt;
+		&lt;/thing&gt;
+	&lt;/things&gt;
+&lt;/imot&gt;
+							</code>
+						</pre>
+					</div>
+				</div>
+				
+
+			</div>
+			<br>
+			<br>
+		</div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+		<script>
+			$("#navbarplaceholder").load("navbar.html");
+		</script>
+    </body>
+</html> 
+

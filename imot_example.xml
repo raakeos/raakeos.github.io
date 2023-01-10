@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imot>
+    <hierarchies>
+		<hierarchy name="Root Level Hierarchy" hierarchyuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" parentuuid="00000000-0000-0000-0000-000000000000" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a" order="0"/>
+                <hierarchy name="Example Hierarchy 1" hierarchyuuid="309b6e78-8ee5-47b9-b01f-a6b3dd1325c1" parentuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" thinguuid="b498cf67-7035-4fe9-b746-707a5e146bc5" order="0"/>
+				<hierarchy name="Example Connection Node Hierarchy" hierarchyuuid="994571c4-f251-4e2e-b646-e85009e0ccfb" parentuuid="80f64b43-fdfc-45cc-9b61-d2587aa757b3" thinguuid="779515c8-17dd-4c23-af66-fea2d4f59f3c" order="1"/>
+    </hierarchies>
+	
+	<things>
+        <thing name="Root Level Thing" thinguuid="e8bb1f99-4c65-482a-957c-f4752c9fc22a">
+            <feature name="ThingType" type="text" value="ExampleRootLevelThing"/>
+		</thing>
+		
+		<thing name="Example Thing 1" thinguuid="b498cf67-7035-4fe9-b746-707a5e146bc5">
+            <feature name="ThingType" type="text" value="ExampleThing"/>
+			<feature name="Version" type="text" value="0.1"/>
+		</thing>
+		
+		<thing name="Example Connection Node Thing" thinguuid="779515c8-17dd-4c23-af66-fea2d4f59f3c">
+            <feature name="ThingType" type="text" value="ConnectionNode"/>
+            <feature name="IPAddress" type="text" value="192.168.1.2"/>
+			<feature name="LoggingFrequency" type="uint64" value="5000"/>
+		</thing>
+	</things>
+
+</imot>
