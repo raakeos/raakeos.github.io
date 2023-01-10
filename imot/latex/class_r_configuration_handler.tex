@@ -1,0 +1,263 @@
+\hypertarget{class_r_configuration_handler}{}\doxysection{RConfiguration\+Handler Class Reference}
+\label{class_r_configuration_handler}\index{RConfigurationHandler@{RConfigurationHandler}}
+
+
+\mbox{\hyperlink{class_r_configuration_handler}{RConfiguration\+Handler}}.  
+
+
+
+
+{\ttfamily \#include $<$rconfigurationhandler.\+h$>$}
+
+
+
+Inheritance diagram for RConfiguration\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{class_r_configuration_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for RConfiguration\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{class_r_configuration_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_configuration_handler_af9ada292588d294fbb9d5b931608855b}{RConfiguration\+Handler}} (RLog $\ast$log, QObject $\ast$parent=nullptr, bool get\+Hidden=false)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_configuration_handler_a2e338bb44e4488cb7abfb92cf124cccd}{RConfiguration\+Handler}} (RLog $\ast$log, QString filename, QObject $\ast$parent=nullptr, bool get\+Hidden=false)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_configuration_handler_a0d264e6db3c8b00959ffb1de06706f3e}{$\sim$\+RConfiguration\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_configuration_handler_ac12a603ac0a01b2f59a3c7678bb8877d}{Parse\+XMLContent}} (QString xml\+Content)
+\begin{DoxyCompactList}\small\item\em A IMoT (XML) parser member. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_configuration_handler_a72cb584cc327109ea77076abe287a67d}{Parse\+XMLContent}} (QString xml\+Content, QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ \&r\+Hierarchies, QList$<$ \mbox{\hyperlink{class_r_thing}{RThing}} $\ast$ $>$ \&r\+Things)
+\begin{DoxyCompactList}\small\item\em A IMoT (XML) parser member. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_r_thing}{RThing}} $\ast$ $>$ \mbox{\hyperlink{class_r_configuration_handler_abe725db0d939a5aec704db02360fdea4}{Get\+RThings}} ()
+\begin{DoxyCompactList}\small\item\em A RThing-\/list getter member. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ \mbox{\hyperlink{class_r_configuration_handler_a3a12670294673be29e6e7560d882513e}{Get\+Hierarchies}} ()
+\begin{DoxyCompactList}\small\item\em A RHierarchy-\/list getter member. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ \mbox{\hyperlink{class_r_configuration_handler_a69866030188ea2a71aa39cd97586bb83}{Get\+Hierarchy\+By\+Hierarchy\+UUID}} (QUuid hierarchy\+UUID)
+\begin{DoxyCompactList}\small\item\em A \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} getter member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_r_configuration_handler}{RConfiguration\+Handler}}. 
+
+\mbox{\hyperlink{class_r_configuration_handler}{RConfiguration\+Handler}} provides an interface for handling the Open Information Model of Things (IMoT). 
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8h_source_l00019}{19}} of file \mbox{\hyperlink{rconfigurationhandler_8h_source}{rconfigurationhandler.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_r_configuration_handler_af9ada292588d294fbb9d5b931608855b}\label{class_r_configuration_handler_af9ada292588d294fbb9d5b931608855b}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!RConfigurationHandler@{RConfigurationHandler}}
+\index{RConfigurationHandler@{RConfigurationHandler}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{RConfigurationHandler()}{RConfigurationHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily RConfiguration\+Handler\+::\+RConfiguration\+Handler (\begin{DoxyParamCaption}\item[{RLog $\ast$}]{log,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr},  }\item[{bool}]{get\+Hidden = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+A constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & a RLog pointer. RLog is needed for logging. \\
+\hline
+{\em parent} & a QObject parent pointer. \\
+\hline
+{\em get\+Hidden} & a boolean argument. If true, \mbox{\hyperlink{class_r_configuration_handler}{RConfiguration\+Handler}} also parses hidden things. Otherwise, hidden issues will not be handled. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_configuration_handler_a2e338bb44e4488cb7abfb92cf124cccd}\label{class_r_configuration_handler_a2e338bb44e4488cb7abfb92cf124cccd}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!RConfigurationHandler@{RConfigurationHandler}}
+\index{RConfigurationHandler@{RConfigurationHandler}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{RConfigurationHandler()}{RConfigurationHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily RConfiguration\+Handler\+::\+RConfiguration\+Handler (\begin{DoxyParamCaption}\item[{RLog $\ast$}]{log,  }\item[{QString}]{filename,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr},  }\item[{bool}]{get\+Hidden = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+A constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & a RLog pointer. RLog is needed for logging. \\
+\hline
+{\em filename} & a QString argument. A Filename for the open Information Model of Things (IMoT). \\
+\hline
+{\em parent} & a QObject parent pointer. \\
+\hline
+{\em get\+Hidden} & a boolean argument. If true, \mbox{\hyperlink{class_r_configuration_handler}{RConfiguration\+Handler}} also parses hidden things. Otherwise, hidden issues will not be handled. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_configuration_handler_a2e338bb44e4488cb7abfb92cf124cccd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_r_configuration_handler_a0d264e6db3c8b00959ffb1de06706f3e}\label{class_r_configuration_handler_a0d264e6db3c8b00959ffb1de06706f3e}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!````~RConfigurationHandler@{$\sim$RConfigurationHandler}}
+\index{````~RConfigurationHandler@{$\sim$RConfigurationHandler}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{$\sim$RConfigurationHandler()}{~RConfigurationHandler()}}
+{\footnotesize\ttfamily RConfiguration\+Handler\+::$\sim$\+RConfiguration\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_r_configuration_handler_a3a12670294673be29e6e7560d882513e}\label{class_r_configuration_handler_a3a12670294673be29e6e7560d882513e}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!GetHierarchies@{GetHierarchies}}
+\index{GetHierarchies@{GetHierarchies}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{GetHierarchies()}{GetHierarchies()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ RConfiguration\+Handler\+::\+Get\+Hierarchies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A RHierarchy-\/list getter member. 
+
+\begin{DoxyReturn}{Returns}
+The list of parsed RHierarchy-\/objects. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_configuration_handler_a69866030188ea2a71aa39cd97586bb83}\label{class_r_configuration_handler_a69866030188ea2a71aa39cd97586bb83}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!GetHierarchyByHierarchyUUID@{GetHierarchyByHierarchyUUID}}
+\index{GetHierarchyByHierarchyUUID@{GetHierarchyByHierarchyUUID}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{GetHierarchyByHierarchyUUID()}{GetHierarchyByHierarchyUUID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ RConfiguration\+Handler\+::\+Get\+Hierarchy\+By\+Hierarchy\+UUID (\begin{DoxyParamCaption}\item[{QUuid}]{hierarchy\+UUID }\end{DoxyParamCaption})}
+
+
+
+A \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} getter member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hierarchy\+UUID} & a QUuid argument. A hierarchy\+UUID contains uuid-\/value of \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The RHierarchy-\/object by given hierarchy UUID. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00331}{331}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_configuration_handler_abe725db0d939a5aec704db02360fdea4}\label{class_r_configuration_handler_abe725db0d939a5aec704db02360fdea4}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!GetRThings@{GetRThings}}
+\index{GetRThings@{GetRThings}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{GetRThings()}{GetRThings()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_r_thing}{RThing}} $\ast$ $>$ RConfiguration\+Handler\+::\+Get\+RThings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A RThing-\/list getter member. 
+
+\begin{DoxyReturn}{Returns}
+The list of parsed RThing-\/objects. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_configuration_handler_ac12a603ac0a01b2f59a3c7678bb8877d}\label{class_r_configuration_handler_ac12a603ac0a01b2f59a3c7678bb8877d}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!ParseXMLContent@{ParseXMLContent}}
+\index{ParseXMLContent@{ParseXMLContent}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{ParseXMLContent()}{ParseXMLContent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void RConfiguration\+Handler\+::\+Parse\+XMLContent (\begin{DoxyParamCaption}\item[{QString}]{xml\+Content }\end{DoxyParamCaption})}
+
+
+
+A IMoT (XML) parser member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xml\+Content} & a QString argument. A xml\+Content contains IMoT xml-\/file to be parsed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_configuration_handler_ac12a603ac0a01b2f59a3c7678bb8877d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_r_configuration_handler_ac12a603ac0a01b2f59a3c7678bb8877d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_r_configuration_handler_a72cb584cc327109ea77076abe287a67d}\label{class_r_configuration_handler_a72cb584cc327109ea77076abe287a67d}} 
+\index{RConfigurationHandler@{RConfigurationHandler}!ParseXMLContent@{ParseXMLContent}}
+\index{ParseXMLContent@{ParseXMLContent}!RConfigurationHandler@{RConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{ParseXMLContent()}{ParseXMLContent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void RConfiguration\+Handler\+::\+Parse\+XMLContent (\begin{DoxyParamCaption}\item[{QString}]{xml\+Content,  }\item[{QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ \&}]{r\+Hierarchies,  }\item[{QList$<$ \mbox{\hyperlink{class_r_thing}{RThing}} $\ast$ $>$ \&}]{r\+Things }\end{DoxyParamCaption})}
+
+
+
+A IMoT (XML) parser member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xml\+Content} & a QString argument. A xml\+Content contains IMoT xml-\/file to be parsed. \\
+\hline
+{\em r\+Hierarchies} & a QList$<$\+RHierarchy$\ast$$>$ argument. An empty reference argument RHierarchy-\/list is used to get(return) parsed hierarchies. \\
+\hline
+{\em r\+Things} & a QList$<$\+RThing$\ast$$>$ argument. An empty reference argument RThing-\/list is used to get(return) parsed things. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{rconfigurationhandler_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{rconfigurationhandler_8cpp_source}{rconfigurationhandler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_configuration_handler_a72cb584cc327109ea77076abe287a67d_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/imot/\mbox{\hyperlink{rconfigurationhandler_8h}{rconfigurationhandler.\+h}}\item 
+common/imot/\mbox{\hyperlink{rconfigurationhandler_8cpp}{rconfigurationhandler.\+cpp}}\end{DoxyCompactItemize}

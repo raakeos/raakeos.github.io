@@ -1,0 +1,50 @@
+\hypertarget{rhierarchy_8h_source}{}\doxysection{rhierarchy.\+h}
+\label{rhierarchy_8h_source}\index{common/imot/rhierarchy.h@{common/imot/rhierarchy.h}}
+\mbox{\hyperlink{rhierarchy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ RHIERARCHY\_H}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ RHIERARCHY\_H}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QUuid>}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rthing_8h}{rthing.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00013}\mbox{\hyperlink{class_r_hierarchy}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00015}00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00016}\mbox{\hyperlink{class_r_hierarchy_af27743c9e458e876542a0d45e3ca9d9b}{00016}}\ \ \ \ \ QString\ \mbox{\hyperlink{class_r_hierarchy_af27743c9e458e876542a0d45e3ca9d9b}{Name}}\ =\ \textcolor{stringliteral}{"{}"{}};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00017}\mbox{\hyperlink{class_r_hierarchy_a216c724e243aa1599d90616d4b975c52}{00017}}\ \ \ \ \ QUuid\ \mbox{\hyperlink{class_r_hierarchy_a216c724e243aa1599d90616d4b975c52}{HierarchyUUID}};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00018}\mbox{\hyperlink{class_r_hierarchy_a9960868bb48835e8be004883f0d022c5}{00018}}\ \ \ \ \ qint64\ \mbox{\hyperlink{class_r_hierarchy_a9960868bb48835e8be004883f0d022c5}{Order}}\ =\ -\/1;\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00019}\mbox{\hyperlink{class_r_hierarchy_ab5d06a4709348f1293f023cd3f3a96b1}{00019}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_r_hierarchy_ab5d06a4709348f1293f023cd3f3a96b1}{Level}}\ =\ -\/1;\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00020}\mbox{\hyperlink{class_r_hierarchy_ad03607a90636706b1d47b10d957a8ef8}{00020}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_r_hierarchy_ad03607a90636706b1d47b10d957a8ef8}{Hidden}}\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00021}\mbox{\hyperlink{class_r_hierarchy_a0200c484716325ab612b51dc85a69346}{00021}}\ \ \ \ \ \mbox{\hyperlink{class_r_thing}{RThing}}*\ \mbox{\hyperlink{class_r_hierarchy_a0200c484716325ab612b51dc85a69346}{Thing}}\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00022}\mbox{\hyperlink{class_r_hierarchy_a3524d5205bce369418a5fd54e1540a5b}{00022}}\ \ \ \ \ QList<RHierarchy*>\ \mbox{\hyperlink{class_r_hierarchy_a3524d5205bce369418a5fd54e1540a5b}{Children}};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00023}\mbox{\hyperlink{class_r_hierarchy_a5b4218f828690417fe5cf978da41e3a2}{00023}}\ \ \ \ \ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}*\ \mbox{\hyperlink{class_r_hierarchy_a5b4218f828690417fe5cf978da41e3a2}{Parent}}\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{class_r_hierarchy_aac81a7a263f5283beed4586c7a6df383}{RHierarchy}}();}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_r_hierarchy_ae81ecb72e39b8c660653c3eb3c6966f2}{\string~RHierarchy}}();}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_hierarchy_a16b530e751277a392899f6fde78f5421}{ParentUUID}}(QUuid\ parentUUID);}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00041}00041\ \ \ \ \ QUuid\ \mbox{\hyperlink{class_r_hierarchy_a16b530e751277a392899f6fde78f5421}{ParentUUID}}();}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00049}00049\ \ \ \ \ QList<RHierarchy*>\ \mbox{\hyperlink{class_r_hierarchy_adec6a7f77dd61e16c6c76f0000964561}{GetChildrenByFeature}}(QString\ featureName,\ QString\ featureValue);}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}*\ \mbox{\hyperlink{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564}{GetParentByFeature}}(QString\ featureName,\ QString\ featureValue);}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00059}00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00060}00060\ \ \ \ \ QUuid\ \_parentUUID\ =\ QUuid();\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00062}00062\ \};}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00064}00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RHIERARCHY\_H}}
+\DoxyCodeLine{\Hypertarget{rhierarchy_8h_source_l00065}00065\ }
+
+\end{DoxyCode}

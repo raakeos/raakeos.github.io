@@ -1,0 +1,5 @@
+<map id="RThing::GetFeature" name="RThing::GetFeature">
+<area shape="rect" id="node1" title="A Features getter member by feature name and value(optional)." alt="" coords="267,54,401,79"/>
+<area shape="rect" id="node2" href="$class_r_hierarchy.html#adec6a7f77dd61e16c6c76f0000964561" title="Get recursively all children by feature name and value." alt="" coords="23,5,201,45"/>
+<area shape="rect" id="node3" href="$class_r_hierarchy.html#a03b1d554fe7fe8e3ab506739ab0a7564" title="Get parent by feature name and value." alt="" coords="5,94,219,119"/>
+</map>

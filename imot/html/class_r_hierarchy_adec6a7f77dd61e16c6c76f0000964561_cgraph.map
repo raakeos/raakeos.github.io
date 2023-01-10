@@ -1,0 +1,4 @@
+<map id="RHierarchy::GetChildrenByFeature" name="RHierarchy::GetChildrenByFeature">
+<area shape="rect" id="node1" title="Get recursively all children by feature name and value." alt="" coords="5,5,184,45"/>
+<area shape="rect" id="node2" href="$class_r_thing.html#a9dd76f3014d07d4b070c3c5892250632" title="A Features getter member by feature name and value(optional)." alt="" coords="232,13,367,38"/>
+</map>

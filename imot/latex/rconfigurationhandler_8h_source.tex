@@ -1,0 +1,70 @@
+\hypertarget{rconfigurationhandler_8h_source}{}\doxysection{rconfigurationhandler.\+h}
+\label{rconfigurationhandler_8h_source}\index{common/imot/rconfigurationhandler.h@{common/imot/rconfigurationhandler.h}}
+\mbox{\hyperlink{rconfigurationhandler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ RCONFIGURATIONHANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ RCONFIGURATIONHANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QCoreApplication>}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QXmlStreamReader>}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}rlog.h"{}}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rhierarchy_8h}{rhierarchy.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}robject.h"{}}}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00013}00013\ Q\_DECLARE\_METATYPE(\mbox{\hyperlink{class_r_thing}{RThing}}*)}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00019}\mbox{\hyperlink{class_r_configuration_handler}{00019}}\ class\ \mbox{\hyperlink{class_r_configuration_handler}{RConfigurationHandler}}\ :\ public\ RObject}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00021}00021\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00022}00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_r_configuration_handler}{RConfigurationHandler}}(RLog*\ log,\ QObject\ *parent\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{bool}\ getHidden\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_r_configuration_handler}{RConfigurationHandler}}(RLog*\ log,\ QString\ filename,\ QObject\ *parent\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{bool}\ getHidden\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{class_r_configuration_handler}{\string~RConfigurationHandler}}();}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ ParseXMLContent(QString\ xmlContent);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ ParseXMLContent(QString\ xmlContent,\ QList<RHierarchy*>\ \&rHierarchies,\ QList<RThing*>\ \&rThings);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00061}00061\ \ \ \ \ QList<RThing\ *>\ GetRThings();}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00067}00067\ \ \ \ \ QList<RHierarchy*>\ GetHierarchies();}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}\ *GetHierarchyByHierarchyUUID(QUuid\ hierarchyUUID);\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00077}00077\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_getHidden\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00079}00079\ \ \ \ \ QMap<QUuid,\ RThing*>\ \_things;\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00080}00080\ \ \ \ \ QMap<QUuid,\ RHierarchy*>\ \_hierarchiesMap;\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00081}00081\ \ \ \ \ QList<RHierarchy*>\ \_hierarchies;\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00088}00088\ \ \ \ \ QList<RHierarchy*>\ GetHierarchiesByParent(\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}*\ parentThing);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00096}00096\ \ \ \ \ QList<RHierarchy*>\ ParseHierarchies(QXmlStreamReader\ \&xmlReader,\ QMap<QUuid,\ RThing*>\ \&things);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00103}00103\ \ \ \ \ QList<RThing*>\ ParseThings(QXmlStreamReader\ \&xmlReader);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00110}00110\ \ \ \ \ QList<RFeature*>\ ParseThingFeatures(QXmlStreamReader\ \&xmlReader);}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00112}00112\ \};}
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{rconfigurationhandler_8h_source_l00114}00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RCONFIGURATIONHANDLER\_H}}
+
+\end{DoxyCode}

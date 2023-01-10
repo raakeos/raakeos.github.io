@@ -1,0 +1,335 @@
+\hypertarget{class_r_hierarchy}{}\doxysection{RHierarchy Class Reference}
+\label{class_r_hierarchy}\index{RHierarchy@{RHierarchy}}
+
+
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}.  
+
+
+
+
+{\ttfamily \#include $<$rhierarchy.\+h$>$}
+
+
+
+Collaboration diagram for RHierarchy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{class_r_hierarchy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_hierarchy_aac81a7a263f5283beed4586c7a6df383}{RHierarchy}} ()
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_hierarchy_ae81ecb72e39b8c660653c3eb3c6966f2}{$\sim$\+RHierarchy}} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_hierarchy_a0303cd11a829344ceaebd8dbd708ee55}{Parent\+UUID}} (QUuid parent\+UUID)
+\begin{DoxyCompactList}\small\item\em Parent-\/\+UUID setter member. \end{DoxyCompactList}\item 
+QUuid \mbox{\hyperlink{class_r_hierarchy_a16b530e751277a392899f6fde78f5421}{Parent\+UUID}} ()
+\begin{DoxyCompactList}\small\item\em A Parent-\/\+UUID getter member. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ \mbox{\hyperlink{class_r_hierarchy_adec6a7f77dd61e16c6c76f0000964561}{Get\+Children\+By\+Feature}} (QString feature\+Name, QString feature\+Value)
+\begin{DoxyCompactList}\small\item\em Get recursively all children by feature name and value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ \mbox{\hyperlink{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564}{Get\+Parent\+By\+Feature}} (QString feature\+Name, QString feature\+Value)
+\begin{DoxyCompactList}\small\item\em Get parent by feature name and value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{class_r_hierarchy_af27743c9e458e876542a0d45e3ca9d9b}{Name}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The name of the hierarchy (of thing). \end{DoxyCompactList}\item 
+QUuid \mbox{\hyperlink{class_r_hierarchy_a216c724e243aa1599d90616d4b975c52}{Hierarchy\+UUID}}
+\begin{DoxyCompactList}\small\item\em The UUID of the hierarchy. \end{DoxyCompactList}\item 
+qint64 \mbox{\hyperlink{class_r_hierarchy_a9960868bb48835e8be004883f0d022c5}{Order}} = -\/1
+\begin{DoxyCompactList}\small\item\em The order of the hierarchy. -\/1 = order is not defined. 0=first on the list, 1=second, ... \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_r_hierarchy_ab5d06a4709348f1293f023cd3f3a96b1}{Level}} = -\/1
+\begin{DoxyCompactList}\small\item\em The Level of the hierarchy. -\/1 = order is not defined. 0=root level, 1=children of the root level hierarchies, ... \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_r_hierarchy_ad03607a90636706b1d47b10d957a8ef8}{Hidden}} = false
+\begin{DoxyCompactList}\small\item\em The Hidded of the hierarchy. true=hierarchy is hidden(if RConfiguration\+Handler has created with get\+Hidden argument, it is possible to see hidden hierarchies) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_thing}{RThing}} $\ast$ \mbox{\hyperlink{class_r_hierarchy_a0200c484716325ab612b51dc85a69346}{Thing}} = nullptr
+\begin{DoxyCompactList}\small\item\em The Thing of the hierarchy. Normally hierarchy has been connected to the one thing-\/object. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ \mbox{\hyperlink{class_r_hierarchy_a3524d5205bce369418a5fd54e1540a5b}{Children}}
+\begin{DoxyCompactList}\small\item\em The Children of the hierarchy. Hierarchies form a recursive structure, so it is possible for a hierarchy to have its own children. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ \mbox{\hyperlink{class_r_hierarchy_a5b4218f828690417fe5cf978da41e3a2}{Parent}} = nullptr
+\begin{DoxyCompactList}\small\item\em The Parent of the hierarchy. If hierarchy is not in root level, then it has a parent, but in the root level Parent pointer is nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}. 
+
+\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} provides an interface for handling hierarchies of things. 
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00013}{13}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_r_hierarchy_aac81a7a263f5283beed4586c7a6df383}\label{class_r_hierarchy_aac81a7a263f5283beed4586c7a6df383}} 
+\index{RHierarchy@{RHierarchy}!RHierarchy@{RHierarchy}}
+\index{RHierarchy@{RHierarchy}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{RHierarchy()}{RHierarchy()}}
+{\footnotesize\ttfamily RHierarchy\+::\+RHierarchy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_ae81ecb72e39b8c660653c3eb3c6966f2}\label{class_r_hierarchy_ae81ecb72e39b8c660653c3eb3c6966f2}} 
+\index{RHierarchy@{RHierarchy}!````~RHierarchy@{$\sim$RHierarchy}}
+\index{````~RHierarchy@{$\sim$RHierarchy}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{$\sim$RHierarchy()}{~RHierarchy()}}
+{\footnotesize\ttfamily RHierarchy\+::$\sim$\+RHierarchy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_r_hierarchy_adec6a7f77dd61e16c6c76f0000964561}\label{class_r_hierarchy_adec6a7f77dd61e16c6c76f0000964561}} 
+\index{RHierarchy@{RHierarchy}!GetChildrenByFeature@{GetChildrenByFeature}}
+\index{GetChildrenByFeature@{GetChildrenByFeature}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{GetChildrenByFeature()}{GetChildrenByFeature()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ $>$ RHierarchy\+::\+Get\+Children\+By\+Feature (\begin{DoxyParamCaption}\item[{QString}]{feature\+Name,  }\item[{QString}]{feature\+Value }\end{DoxyParamCaption})}
+
+
+
+Get recursively all children by feature name and value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em feature\+Name} & a QString argument. A feature\+Name contains the name of the feature of the child to be searched for. \\
+\hline
+{\em feature\+Name} & a QString argument. A feature\+Name contains the value of the feature of the child to be searched for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of RHierarchy-\/objects(children). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_hierarchy_adec6a7f77dd61e16c6c76f0000964561_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564}\label{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564}} 
+\index{RHierarchy@{RHierarchy}!GetParentByFeature@{GetParentByFeature}}
+\index{GetParentByFeature@{GetParentByFeature}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{GetParentByFeature()}{GetParentByFeature()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}} $\ast$ RHierarchy\+::\+Get\+Parent\+By\+Feature (\begin{DoxyParamCaption}\item[{QString}]{feature\+Name,  }\item[{QString}]{feature\+Value }\end{DoxyParamCaption})}
+
+
+
+Get parent by feature name and value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em feature\+Name} & a QString argument. A feature\+Name contains the name of the feature of the parent to be searched for. \\
+\hline
+{\em feature\+Name} & a QString argument. A feature\+Name contains the value of the feature of the parent to be searched for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The RHierarchy-\/object(parent). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_r_hierarchy_a03b1d554fe7fe8e3ab506739ab0a7564_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_r_hierarchy_a16b530e751277a392899f6fde78f5421}\label{class_r_hierarchy_a16b530e751277a392899f6fde78f5421}} 
+\index{RHierarchy@{RHierarchy}!ParentUUID@{ParentUUID}}
+\index{ParentUUID@{ParentUUID}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{ParentUUID()}{ParentUUID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily QUuid RHierarchy\+::\+Parent\+UUID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A Parent-\/\+UUID getter member. 
+
+\begin{DoxyReturn}{Returns}
+The parent UUID value. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_a0303cd11a829344ceaebd8dbd708ee55}\label{class_r_hierarchy_a0303cd11a829344ceaebd8dbd708ee55}} 
+\index{RHierarchy@{RHierarchy}!ParentUUID@{ParentUUID}}
+\index{ParentUUID@{ParentUUID}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{ParentUUID()}{ParentUUID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void RHierarchy\+::\+Parent\+UUID (\begin{DoxyParamCaption}\item[{QUuid}]{parent\+UUID }\end{DoxyParamCaption})}
+
+
+
+Parent-\/\+UUID setter member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\+UUID} & a QUuid argument. A parent\+UUID contains parent-\/hierarchy UUID value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{rhierarchy_8cpp_source}{rhierarchy.\+cpp}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_hierarchy_a0303cd11a829344ceaebd8dbd708ee55_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_r_hierarchy_a3524d5205bce369418a5fd54e1540a5b}\label{class_r_hierarchy_a3524d5205bce369418a5fd54e1540a5b}} 
+\index{RHierarchy@{RHierarchy}!Children@{Children}}
+\index{Children@{Children}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Children}{Children}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}$\ast$$>$ RHierarchy\+::\+Children}
+
+
+
+The Children of the hierarchy. Hierarchies form a recursive structure, so it is possible for a hierarchy to have its own children. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00022}{22}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_ad03607a90636706b1d47b10d957a8ef8}\label{class_r_hierarchy_ad03607a90636706b1d47b10d957a8ef8}} 
+\index{RHierarchy@{RHierarchy}!Hidden@{Hidden}}
+\index{Hidden@{Hidden}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Hidden}{Hidden}}
+{\footnotesize\ttfamily bool RHierarchy\+::\+Hidden = false}
+
+
+
+The Hidded of the hierarchy. true=hierarchy is hidden(if RConfiguration\+Handler has created with get\+Hidden argument, it is possible to see hidden hierarchies) 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00020}{20}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_a216c724e243aa1599d90616d4b975c52}\label{class_r_hierarchy_a216c724e243aa1599d90616d4b975c52}} 
+\index{RHierarchy@{RHierarchy}!HierarchyUUID@{HierarchyUUID}}
+\index{HierarchyUUID@{HierarchyUUID}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{HierarchyUUID}{HierarchyUUID}}
+{\footnotesize\ttfamily QUuid RHierarchy\+::\+Hierarchy\+UUID}
+
+
+
+The UUID of the hierarchy. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00017}{17}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_ab5d06a4709348f1293f023cd3f3a96b1}\label{class_r_hierarchy_ab5d06a4709348f1293f023cd3f3a96b1}} 
+\index{RHierarchy@{RHierarchy}!Level@{Level}}
+\index{Level@{Level}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Level}{Level}}
+{\footnotesize\ttfamily int RHierarchy\+::\+Level = -\/1}
+
+
+
+The Level of the hierarchy. -\/1 = order is not defined. 0=root level, 1=children of the root level hierarchies, ... 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00019}{19}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_af27743c9e458e876542a0d45e3ca9d9b}\label{class_r_hierarchy_af27743c9e458e876542a0d45e3ca9d9b}} 
+\index{RHierarchy@{RHierarchy}!Name@{Name}}
+\index{Name@{Name}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily QString RHierarchy\+::\+Name = \char`\"{}\char`\"{}}
+
+
+
+The name of the hierarchy (of thing). 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00016}{16}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_a9960868bb48835e8be004883f0d022c5}\label{class_r_hierarchy_a9960868bb48835e8be004883f0d022c5}} 
+\index{RHierarchy@{RHierarchy}!Order@{Order}}
+\index{Order@{Order}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Order}{Order}}
+{\footnotesize\ttfamily qint64 RHierarchy\+::\+Order = -\/1}
+
+
+
+The order of the hierarchy. -\/1 = order is not defined. 0=first on the list, 1=second, ... 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00018}{18}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_a5b4218f828690417fe5cf978da41e3a2}\label{class_r_hierarchy_a5b4218f828690417fe5cf978da41e3a2}} 
+\index{RHierarchy@{RHierarchy}!Parent@{Parent}}
+\index{Parent@{Parent}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Parent}{Parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_hierarchy}{RHierarchy}}$\ast$ RHierarchy\+::\+Parent = nullptr}
+
+
+
+The Parent of the hierarchy. If hierarchy is not in root level, then it has a parent, but in the root level Parent pointer is nullptr. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00023}{23}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+\mbox{\Hypertarget{class_r_hierarchy_a0200c484716325ab612b51dc85a69346}\label{class_r_hierarchy_a0200c484716325ab612b51dc85a69346}} 
+\index{RHierarchy@{RHierarchy}!Thing@{Thing}}
+\index{Thing@{Thing}!RHierarchy@{RHierarchy}}
+\doxysubsubsection{\texorpdfstring{Thing}{Thing}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_thing}{RThing}}$\ast$ RHierarchy\+::\+Thing = nullptr}
+
+
+
+The Thing of the hierarchy. Normally hierarchy has been connected to the one thing-\/object. 
+
+
+
+Definition at line \mbox{\hyperlink{rhierarchy_8h_source_l00021}{21}} of file \mbox{\hyperlink{rhierarchy_8h_source}{rhierarchy.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/imot/\mbox{\hyperlink{rhierarchy_8h}{rhierarchy.\+h}}\item 
+common/imot/\mbox{\hyperlink{rhierarchy_8cpp}{rhierarchy.\+cpp}}\end{DoxyCompactItemize}

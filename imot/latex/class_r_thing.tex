@@ -1,0 +1,187 @@
+\hypertarget{class_r_thing}{}\doxysection{RThing Class Reference}
+\label{class_r_thing}\index{RThing@{RThing}}
+
+
+\mbox{\hyperlink{class_r_thing}{RThing}}.  
+
+
+
+
+{\ttfamily \#include $<$rthing.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_feature}{RFeature}} $\ast$ \mbox{\hyperlink{class_r_thing_a9dd76f3014d07d4b070c3c5892250632}{Get\+Feature}} (QString name, QString value=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em A Features getter member by feature name and value(optional). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_thing_a546e78724fa0d101f15300f008d2cfd2}{RThing}} ()
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_r_thing_aeaf8d5a12bf7217fe18b45d194b93c6d}{$\sim$\+RThing}} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{class_r_thing_a1aeeae4ab55041152513ac046158a9a7}{Name}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The name of the thing. \end{DoxyCompactList}\item 
+QUuid \mbox{\hyperlink{class_r_thing_a3ab07c5c2345a8976a453e552cc6f54e}{Thing\+UUID}}
+\begin{DoxyCompactList}\small\item\em The UUID of the thing. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_r_thing_ac26b32f162998fc792f35517065215d6}{Thing\+Type}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The value of the Thing\+Type-\/feature. Empty if thing has no Thing\+Type feature. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_r_thing_a1599bf2406b91a2469a341d95b24781e}{Hidden}} = false
+\begin{DoxyCompactList}\small\item\em The Hidded of the thing. true=thing is hidden(if RConfiguration\+Handler has created with get\+Hidden argument, it is possible to see hidden things) \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_r_feature}{RFeature}} $\ast$ $>$ \mbox{\hyperlink{class_r_thing_aea6f4e1acec45c58577838816e75c334}{Features}}
+\begin{DoxyCompactList}\small\item\em The list of the features. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_r_thing}{RThing}}. 
+
+\mbox{\hyperlink{class_r_thing}{RThing}} provides an interface for handling things. 
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00013}{13}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_r_thing_a546e78724fa0d101f15300f008d2cfd2}\label{class_r_thing_a546e78724fa0d101f15300f008d2cfd2}} 
+\index{RThing@{RThing}!RThing@{RThing}}
+\index{RThing@{RThing}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{RThing()}{RThing()}}
+{\footnotesize\ttfamily RThing\+::\+RThing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{rthing_8cpp_source}{rthing.\+cpp}}.
+
+\mbox{\Hypertarget{class_r_thing_aeaf8d5a12bf7217fe18b45d194b93c6d}\label{class_r_thing_aeaf8d5a12bf7217fe18b45d194b93c6d}} 
+\index{RThing@{RThing}!````~RThing@{$\sim$RThing}}
+\index{````~RThing@{$\sim$RThing}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{$\sim$RThing()}{~RThing()}}
+{\footnotesize\ttfamily RThing\+::$\sim$\+RThing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{rthing_8cpp_source}{rthing.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_r_thing_a9dd76f3014d07d4b070c3c5892250632}\label{class_r_thing_a9dd76f3014d07d4b070c3c5892250632}} 
+\index{RThing@{RThing}!GetFeature@{GetFeature}}
+\index{GetFeature@{GetFeature}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{GetFeature()}{GetFeature()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_feature}{RFeature}} $\ast$ RThing\+::\+Get\+Feature (\begin{DoxyParamCaption}\item[{QString}]{name,  }\item[{QString}]{value = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+A Features getter member by feature name and value(optional). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & a QString argument. The name of the searched feature. \\
+\hline
+{\em value} & a QString argument. The value of the searched feature. If no value is given, then search by name only. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The RFeature-\/pointer. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rthing_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{rthing_8cpp_source}{rthing.\+cpp}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_thing_a9dd76f3014d07d4b070c3c5892250632_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_r_thing_aea6f4e1acec45c58577838816e75c334}\label{class_r_thing_aea6f4e1acec45c58577838816e75c334}} 
+\index{RThing@{RThing}!Features@{Features}}
+\index{Features@{Features}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{Features}{Features}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_r_feature}{RFeature}}$\ast$$>$ RThing\+::\+Features}
+
+
+
+The list of the features. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00021}{21}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+\mbox{\Hypertarget{class_r_thing_a1599bf2406b91a2469a341d95b24781e}\label{class_r_thing_a1599bf2406b91a2469a341d95b24781e}} 
+\index{RThing@{RThing}!Hidden@{Hidden}}
+\index{Hidden@{Hidden}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{Hidden}{Hidden}}
+{\footnotesize\ttfamily bool RThing\+::\+Hidden = false}
+
+
+
+The Hidded of the thing. true=thing is hidden(if RConfiguration\+Handler has created with get\+Hidden argument, it is possible to see hidden things) 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00019}{19}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+\mbox{\Hypertarget{class_r_thing_a1aeeae4ab55041152513ac046158a9a7}\label{class_r_thing_a1aeeae4ab55041152513ac046158a9a7}} 
+\index{RThing@{RThing}!Name@{Name}}
+\index{Name@{Name}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily QString RThing\+::\+Name = \char`\"{}\char`\"{}}
+
+
+
+The name of the thing. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00016}{16}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+\mbox{\Hypertarget{class_r_thing_ac26b32f162998fc792f35517065215d6}\label{class_r_thing_ac26b32f162998fc792f35517065215d6}} 
+\index{RThing@{RThing}!ThingType@{ThingType}}
+\index{ThingType@{ThingType}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{ThingType}{ThingType}}
+{\footnotesize\ttfamily QString RThing\+::\+Thing\+Type = \char`\"{}\char`\"{}}
+
+
+
+The value of the Thing\+Type-\/feature. Empty if thing has no Thing\+Type feature. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00018}{18}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+\mbox{\Hypertarget{class_r_thing_a3ab07c5c2345a8976a453e552cc6f54e}\label{class_r_thing_a3ab07c5c2345a8976a453e552cc6f54e}} 
+\index{RThing@{RThing}!ThingUUID@{ThingUUID}}
+\index{ThingUUID@{ThingUUID}!RThing@{RThing}}
+\doxysubsubsection{\texorpdfstring{ThingUUID}{ThingUUID}}
+{\footnotesize\ttfamily QUuid RThing\+::\+Thing\+UUID}
+
+
+
+The UUID of the thing. 
+
+
+
+Definition at line \mbox{\hyperlink{rthing_8h_source_l00017}{17}} of file \mbox{\hyperlink{rthing_8h_source}{rthing.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/imot/\mbox{\hyperlink{rthing_8h}{rthing.\+h}}\item 
+common/imot/\mbox{\hyperlink{rthing_8cpp}{rthing.\+cpp}}\end{DoxyCompactItemize}
