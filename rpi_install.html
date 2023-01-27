@@ -1,0 +1,411 @@
+<div id="section1">
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-sm-12">
+			<p class="basic_text">
+			</p>
+		</div>
+	</div>
+	
+	<div class="row">					
+		<div class="col-sm-12">
+			<h1>Install Content Logger Solution for Raspberry PI 4</h1>
+			<p class="basic_text">
+				Download RPI-image from: <a href="https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit" target="_blank">Raspberry Pi OS (64-bit) & Raspberry Pi OS Lite</a>
+			</p>
+			
+			<p class="basic_text">
+				Burn the RPI-image to sd-card. (using <a href="https://www.balena.io/etcher/" target="_blank">Balena Etcher</a> for example) 
+			</p>
+			
+			<p class="basic_text">
+				Put sd-card to your RPI-device and setup your system. When setup-process asks for a username, enter raake and password is RaakeSmart. You can use other usernames and passwords also, but following instructions are using those values, so if you don't know how install system, it is easier to you default values.		
+			</p>
+			<br>
+			<p class="basic_text">
+				After setup, install all needed programs by following instructions below:
+			</p>
+			<pre>
+				<code>
+#https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point
+#https://medium.com/nerd-for-tech/using-the-raspberry-pi-zero-as-a-wifi-range-extender-and-an-iot-device-108d8e47ce5
+
+#Basic updates
+sudo apt-get update
+sudo apt-get upgrade
+
+#install access point tools
+sudo apt install hostapd
+sudo apt install dnsmasq
+sudo DEBIAN_FRONTEND=noninteractive apt install -y netfilter-persistent iptables-persistent
+
+#enable hostpd-service
+sudo systemctl unmask hostapd.service
+sudo systemctl enable hostapd.service
+
+#Configure dhcp-server(uap0-interface) ip-address
+sudo nano /etc/dhcpcd.conf #####Add to the end of file, following lines:
+#####COPY START#####
+interface uap0
+    static ip_address=192.168.58.1/24
+    nohook wap_supplicant
+
+interface eth0
+    static ip_address=192.168.7.51/24
+#####COPY END#####
+
+#Configure ipforwarding
+sudo nano /etc/sysctl.d/routed-ap.conf ####Add following line into the file:
+#####COPY START#####
+net.ipv4.ip_forward=1
+#####COPY END#####
+
+#reboot system
+sudo reboot
+
+#Configure iptable access point routing
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+
+sudo rfkill unblock wlan
+
+#Configure dns-server 
+sudo nano /etc/dnsmasq.conf ####Add following lines into the file:
+#####COPY START#####
+interface=uap0
+dhcp-range=192.168.58.5,192.168.58.100,255.255.255.0,300d
+domain=wlan
+address=/rt.wlan/192.168.58.1
+#####COPY END#####
+
+#Configure hostapd (Access point)
+sudo nano /etc/hostapd/hostapd.conf ###Add following lines into the file:
+#####COPY START#####
+country_code=FI
+interface=uap0
+ssid=RaakeContentLoggerRPI01
+hw_mode=g
+channel=7
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=RaakeSmart
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+#####COPY END#####
+
+#Create startup script
+sudo nano /home/raake/raakeapstart.sh ####Add following lines into the file:
+#####COPY START#####
+systemctl stop hostapd.service
+systemctl stop dnsmasq.service
+systemctl stop dhcpcd.service
+
+iw dev uap0 del
+iw dev wlan0 interface add uap0 type __ap
+
+ifconfig uap0 up
+
+systemctl start hostapd.service
+sleep 10
+systemctl start dhcpcd.service
+sleep 5
+systemctl start dnsmasq.service
+#####COPY END#####
+
+#Configure system so that startup-script is executed in starting process
+sudo nano /etc/rc.local ####Add following line just before exit 0:-line
+#####COPY START#####
+/home/raake/raakeapstart.sh
+#####COPY END#####
+
+#Make startup script executable
+sudo chmod +x /home/raake/raakeapstart.sh
+
+#Install git
+sudo apt install git
+
+#Get Content Logger source
+git clone https://github.com/kyostimarjakangas/raake.git
+
+# install Qt5 compinents OS
+sudo apt-get install qtbase5-dev
+
+#install nodejs
+sudo apt-get install nodejs
+
+#install npm
+sudo apt-get install npm
+
+#install express for nodejs
+cd raake/RaakeContentLoggerAPI
+sudo npm install express
+cd ../..
+
+#Install NginX
+sudo apt install nginx
+
+#Change homepage folder
+sudo nano /etc/nginx/sites-available/default  ####Change following lines into the file:
+
+#Comment this: root /var/www/html; ->#root /var/www/html;
+#Add this line after commented line: root /home/raake/raake/RaakeContentLoggerWebUI;
+#exit 
+
+sudo reboot
+
+#Create connection node s7 service
+sudo nano /etc/systemd/system/raakes7connectionnode.service ####Add following lines into the file:
+#####COPY START#####
+[Unit]
+Description=Raake S7 Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/raake/raake/bin/RaakeS7ConnectionNode 4de0bded-d81f-4eb6-9f82-a15ea8d8183e
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#####COPY END#####
+sudo systemctl enable raakes7connectionnode.service
+sudo systemctl start raakes7connectionnode.service
+
+#Create connection node status service
+sudo nano /etc/systemd/system/raakestatusconnectionnode.service 
+#####COPY START#####
+[Unit]
+Description=Raake Status Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/raake/raake/bin/RaakeStatusConnectionNode 6752e9e8-53f7-4fc4-b497-fcd59e97e11f
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#####COPY END#####
+sudo systemctl enable raakestatusconnectionnode.service
+sudo systemctl start raakestatusconnectionnode.service
+
+#Create Senseair S8 connection node service
+sudo nano /etc/systemd/system/raakesenseairs8connectionnode.service 
+#####COPY START#####
+[Unit]
+Description=Raake SenseAir S8 Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/raake/raake/bin/RaakeSenseAirS8ConnectionNode d844bda4-c6e4-4ba7-af79-58bcd30b571a
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#####COPY END#####
+sudo systemctl enable raakesenseairs8connectionnode.service
+sudo systemctl start raakesenseairs8connectionnode.service
+
+#Create RaakeBMP280ConnectionNode service
+sudo nano /etc/systemd/system/raakebmp280connectionnode.service
+#####COPY START#####
+[Unit]
+Description=Raake BMP280 Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/pi/projects/raake/bin/RaakeBMP280ConnectionNode dd201af5-6da1-4c2f-86ae-5b7fab1cf9cd /home/pi/projects/raake/bin/config_senseair.xml
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#####COPY END#####
+sudo systemctl enable raakebmp280connectionnode.service
+sudo systemctl start raakebmp280connectionnode.service
+sudo nano /boot/cmdline.txt #remove console=serial0,115200 and console=tty
+
+#Create Log connection node service
+sudo nano /etc/systemd/system/raakelogconnectionnode.service ####Add following lines into the file:
+#####COPY START#####
+[Unit]
+Description=Raake Log Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/raake/raake/bin/RaakeLogConnectionNode d1b97b55-d902-4159-8a64-0015b2e38f51
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#####COPY END#####
+sudo systemctl enable raakelogconnectionnode.service
+sudo systemctl start raakelogconnectionnode.service
+
+#Create content organizer service
+sudo nano /etc/systemd/system/raakecontentorganizer.service ####Add following lines into the file:
+#####COPY START#####
+[Unit]
+Description=Raake Content Organizer Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 12
+ExecStart=/home/raake/raake/bin/RaakeContentOrganizer c7501bae-1769-4bc7-a40b-0a1ce2375f98
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#####COPY END#####
+sudo systemctl enable raakecontentorganizer.service
+sudo systemctl start raakecontentorganizer.service
+
+
+#Create content logger service
+sudo nano /etc/systemd/system/raakecontentlogger.service ####Add following lines into the file:
+#####COPY START#####
+[Unit]
+Description=Raake Content Logger Service
+Requires=raakes7connectionnode.service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 12
+ExecStart=/home/raake/raake/bin/RaakeContentLogger c7501bae-1769-4bc7-a40b-0a1ce2375f98
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#####COPY END#####
+sudo systemctl enable raakecontentlogger.service
+sudo systemctl start raakecontentlogger.service
+
+#Create content logger api service
+sudo nano /etc/systemd/system/raakecontentloggerapi.service 
+#####COPY START#####
+[Unit]
+Description=Raake Content Logger API Service
+After=network-online.target
+
+[Service]
+ExecStart=nodejs /home/raake/raake/RaakeContentLoggerAPI/server.js 3410ca5e-6c7b-4b8f-a533-53b9b3b583eb /home/raake/raake/bin/config.xml
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#####COPY END#####
+sudo systemctl enable raakecontentloggerapi.service
+sudo systemctl start raakecontentloggerapi.service
+
+
+#Create RaakeSenseAirS8ConnectionNode service
+sudo nano /etc/systemd/system/raakesenseairs8connectionnode.service
+#####COPY START#####
+[Unit]
+Description=Raake SenseAir S8 Connection Node Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/home/pi/projects/raake/bin/RaakeSenseAirS8ConnectionNode d844bda4-c6e4-4ba7-af79-58bcd30b571a /home/pi/projects/raake/bin/config_senseair.xml
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#####COPY END#####
+sudo systemctl enable raakesenseairs8connectionnode.service
+sudo systemctl start raakesenseairs8connectionnode.service
+
+
+
+
+#if using usb-drive
+sudo mkdir /mnt/contentlogger
+sudo chmod -R 777 /mnt/contentlogger
+#Create script for auto mounting
+sudo nano raakeusbdrivemount.sh
+#####COPY START#####
+#!/bin/bash
+sudo mount /dev/sda1 /mnt/contentlogger
+#####COPY END#####
+
+sudo chmod +x /home/raake/raakeusbdrivemount.sh
+
+#Configure system so that startup-script is executed in starting process
+sudo nano /etc/rc.local ####Add following line just before exit 0:-line
+/home/raake/raakeusbdrivemount.sh
+
+#set ntp time sync
+sudo apt-get install ntp
+
+#remove timesync
+sudo systemctl disable systemd-timesyncd
+
+sudo nano /etc/ntp.conf
+
+#replace pool addresses in ContentLoggerRPI03:
+pool 0.europe.pool.ntp.org iburst
+pool 1.europe.pool.ntp.org iburst
+pool 2.europe.pool.ntp.org iburst
+pool 3.europe.pool.ntp.org iburst
+
+#Add server in other devices:
+server 192.168.7.51 prefer iburst
+
+
+
+
+sudo reboot
+
+
+ 
+
+
+				</<code>
+			</pre
+			<br>
+			<p class="basic_text">
+				
+			</p>
+			
+		</div>
+	</div>
+	<br>
+	<br>
+	
+
+
+	
+
+</div>
+
+
+
