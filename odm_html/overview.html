@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Yleiskatsaus avoimeen kehittämismalliin </title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="js/jquery-3.6.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">  
+            <div class="row">
+            <div class="row">
+                <div class="col-lg-12">  
+                    <h1>Avoin kehittämismalli</h1>
+                    <h2>(Mikä se on?)</h2>
+                    <p>Mitä tehokkaammin innovaatioverkosto toimii, sitä enemmän se kykenee tuottamaan haluttuja innovaatioita. Tehokkuuden lisäys verkostossa vaatii sekä toiminnnan orkestrointia, että toiminnan rakenteet.
+                        <span class="reference">
+                            (Dhanaraj & Parkhe 2006)
+                            <span class="tooltiptext">Dhanaraj C. & Parkhe A. (2006) Orchestrating Innovation Networks. Academy of Management Review 2006, Vol 31. No. 3, p.659-669</span>
+                        </span>
+                    </p>
+                    <p>
+                        Ammattikorkeakoulujen tutkimus-, kehittämis- ja innovaatiotoiminnan pääpainopiste on <u>soveltavassa</u> tutkimus- ja kehitystyössä. Ammattikorkeakoulut harjoittavat opetusta palvelevaa sekä työelämää ja aluekehitystä tukevaa, alueen elinkeinorakennetta uudistavaa soveltavaa tutkimus-, kehittämis- ja innovaatiotoimintaa sekä taiteellista toimintaa.
+                        <a href="https://okm.fi/korkeakoulut-ja-tiedelaitokset" target="_blank" class="reference">(Opetus- ja kulttuuriministeriö)</a>
+
+                    </p>
+                    <p>
+                        Keskeinen innovaatiokyvykkyyttä selittävä tekijä on verkostojen eri osapuolten välisten yhteyksien lisääntyminen. Mark Granovetter esitti teorian siitä, että verkostossa olevat heikot linkit muodostavat yhteyksiä niihin maailman osiin, joihin ei olisi muuten pääsyä.
+                        <span class="reference">
+                            (Mark Granovetter 1973)
+                            <span class="tooltiptext">Granovetter M. S. (1973) The strength of weak ties. The American Journal of Sociology, Vol. 78, No. 6. (May, 1973), p.1360-1380.</span>
+                        </span>
+                    </p>
+                    <p>Ammattikorkeakoulujen vastuulla onkin toimia käytännön innovaatioiden ja tutkimuksen rajapinnassa. Käytännössä tämä soveltava tutkimus- ja kehitystyö rakentaa siltoja erilaisten tietämysten välille. Hyvin usein tämä silta jää rakentamatta ja tietämys potentiaalisesta innovaatiosta ei saavuta selaisia osapuolia, jotka kykenevät realisoimaan innovaation. Avoin kehittämismalli on suunniteltu helpottamaan erilaisten tietämysten käsittelyä, muuntamista ja siirtämistä avoimessa verkostossa.</p>
+                    <p>
+                        Avoimen kehittämismallin taustalla tietämyksen luomisen reikäleipämalli.
+                        <span class="reference">
+                            (Harmaakorpi & Melkas 2005)
+                            <span class="tooltiptext">Harmaakorpi, V. & Melkas, H., 2005. Knowledge Management in Regional Innovation Networks: The Case of Lahti, Finland. European Planning Studies, Issue Vol. 13, No. 5, pp. 641-659.</span>
+                        </span>
+                        Reikäleipämallissa on kuusi erilaista tiedon käsittelyn areenaa, joissa tietoa pyritään käsittelemään siten, että lisäisi osapuolten ymmärtämystä käsiteltävästä tiedosta ja siten mahdollistaisi tiedon siirtämisen. Alla olevassa kuvassa on reikäleipämallin visialisointi. Mallissa tieto on jaettu kolmeen eri kateroriaan: koodattu tieto, hiljainen tieto ja sumea tieto. Tämä kategorisointi on tärkee, koska erilaisten tietotyyppien käsittely, muuntaminen ja siirtäminen vaatii erilaisia tapoja.     
+                    </p>
+                    <p>Reikäleipämallissa tietoa käsitellään kuudessa eri areenassa, joista kolmessa (Mielikuvituksen areena, Vuorovaikutuksen areena ja Toteuttava areena) tiedon kategoria muuttuu. Tämä tarkoittaa sitä, että käsittelyn alussa areenalle tuleva tieto on erilaista kuin käsittelyn lopussa. Tiedon muuntaminen on tärkeää, koska se mahdollistaa verkostossa olevien osapuolten tiedollisten etäisyyksien välisen kuilun kaventumisen. Tämän johdosta eri osapuolille alkaa syntymään yhteyksiä sellaisiin maailman osiin, joihin heillä ei olisi muuten pääsyä. Kolme muuta areenaa (tulevaisuustiedon areena, alullepaneva areena ja järjestävä areena) lisäävät ymmärtämystä käsiteltävästä tiedosta.</p>
+                    <img src="reikaleipa.png" alt="Harmaakorpi, V. & Melkas, H., 2005. Knowledge Management in Regional Innovation Networks: The Case of Lahti, Finland. European Planning Studies, Issue Vol. 13, No. 5, pp. 641-659.">
+                </div>
+
+                <div class="col-lg-12">  
+                    <p>Avoin kehittämismalli on mukautettu käytännön implementaatio reikäleipämallista ammattikorkeakoulujen käyttöön. Siinä yhdistyy tiedon käsittelyn, muuntamisen ja siirtämisen rakenteet koko toimintaa ohjaavaan orkestrointiin.</p>
+                    <p>Avoimessa kehittämismalli perustuu säännöllisesti toistuviin tapahtumiin, jotka muistuttavat ketteristä kehitysmenetelmistä tuttuja <a href="https://www.scrum.org/resources/what-is-a-sprint-in-scrum" target="_blank">sprinttejä</a>. Ajatuksena on, että jokainen tapahtuma tuottaa "valmiin" kuvauksen, jota voidaan käyttää uusien tapahtumien lähtötietona tai vaikka uuden innovaation suunnitelmana. Tärkeää onkin, että jokainen tapahtuma tuottaa käyttökelpoista tietoa, jatkoa varten.</p>
+                    <p>Tapahtumat seuraavat toisiaan, jolloin syntyy jatkuvasti pyörivä kehä. Taustalla on reikäleipämallin ajatus siitä, että tieto muuttaa muotoaan ja jalostuu jokaisessa tapahtumassa. Toiminta avoimen kehittämismallin tapahtumissa muistuttaa hacakathoneja, jonka johdosta tapahtumia kutsutaankin kutsutaan thoneiksi. <a href="https://en.wikipedia.org/wiki/Hackathon" target="_blank" class="reference">(hackathon)</a>.</p>
+                    <br>
+                    <p><b>Thoni:</b></p>
+                    <ul>
+                        <li>Tavoitteena on kehittää tietoa.</li>
+                        <li>Tulokset ovat kuvauksia:</li>
+                            <ul>
+                                <li>Käytännön haasteista</li>
+                                <li>Tulevaisuuden mahdollisuuksista</li>
+                                <li>Täydellisistä ratkaisuista</li>
+                                <li>Realistisista ratkaisuista</li>
+                                <li>Käytännön toiminnallisuudesta</li>
+                                <li>Innovaatiosuunnitelmia</li>
+                            </ul>
+                        <li>Tapahtuman kesto voi olla muutamasta tunnista muutamaan päivään.</li>
+                        <li>Tapahtumat ovat rentoja ja epämuodollisia.</li>
+                        <li>Osallistujat saavat toimia itselleen luotaisessa roolissa:</li>
+                            <ul>
+                                <li>Haasteen(tiedon) omistaja</li>
+                                <li>Haasteen(tiedon) ratkaisija</li>
+                                <li>Haasteen(tiedon) jalostaja</li>
+                                <li>Haasteen(tiedon) rikastuttaja</li>
+                            </ul>
+                    </ul>
+                      
+                    <h2>Challengethon</h2>
+                      
+                    <p>
+                        Uuden tiedon sisäistäminen tarkoittaa koodatun tiedon muuntamista hiljaiseksi tiedoksi. Tässä vaiheessa koodatun tiedon on ilmennyttävä toimintana tai käytäntöinä simulaatioiden tai kokeilujen kautta. Toteuttava areena helpottaa koodatun tiedon muuntamista hiljaiseksi tiedoksi. Sisäistämistä johdetaan usein asiantuntevien kouluttajien toteuttaman ja jatkuvaa harjoittelua sisältävän täsmäkoulutuksen avulla.
+                        <span class="reference">
+                            (Koivula & ym. 2014)
+                            <span class="tooltiptext">
+                                <a href="https://lutpub.lut.fi/handle/10024/161759" target="_blank">Tutkimus ja arki kohtaavat</a><br>
+                                Koivula, Marja; Melkas, Helinä; Laakso, Hilkka; Rantala, Tero; Rinkinen, Satu; Hennala, Lea; Hovén, Kristina; Jokela, Merja; Kirjonen, Irene; Laihanen, Annu; Hyypiä, Mirva; Parjanen, Satu; Uotila, Tuomo; Artima-Sulkinoja, Essi; Khan, Rakhshand; Kallio, Anne; Mäkimattila, Martti; Pekkarinen, Satu; Saunila, Minna (2014)<br>
+                            </span>
+                        </span>
+                    </p>
+                    <p>Challengethonissa kuvataan koodattua tietoa käytännön haasteista. Haasteisiin pyritään lisäämään uusia näkökulmia esimerkiksi oppilaiden avulla. Yrityksen tai muun organisaation haasteena voi olla esimerkiksi se, että heillä olisi uusi palveluinnovaatio, mutta toteuttamisen esteenä on ihmisten yksityisyys. Yrityksen tehtävänä on kuvata uusi innovaatio mahdollisimman monesta eri näkökulmasta. Oppilaiden tehtävä on kuvata esteet mahdollisimman tarkasti(esteenä voi olla esim. lainsäädäntö).</p>
+
+                    <img src="challengethon.png" alt="Challenge transformation">
+                    <p>Lopputuloksena on kuvaus(haasteen tarina), jossa on kolme osaa. Ensimmäisestä osasta vastaa haasteen kuvaaja(esim. yritys), joka tuottaa haasteeseen liittyvät <a href="https://www.tieturi.fi/blogi/kayttajatarinoilla-mitattavia-tuloksia/" target="_blank">käyttäjätarinat</a>. Toisesta osasta vastaa haasteen teoretisoija(esim. oppilaat), jotka tuottavat haasteeseen liittyvinen esteiden tarkoista kuvauksista. Viimeinen osa on kaikkien osapuolten yhdessä tuottama yhteenveto haasteesta, jossa voi jo olla "ituja" siitä, kuinka haastetta voidaan lähteä ratkaisemaan.</a> </p>
+                    
+                    <br>
+                    <h2>Futurethon</h2>
+                    <p>Futurethonissa tavoitteena on jalostaa haasteiden tarinoita ja esteitä tulevaisuuden <a href="https://en.wikipedia.org/wiki/Scenario" target="_blank">skenaarioilla</a>. Lähtökohta on poimia challengethonien tarinoita ja rakentaa uskottavia tulevaisuusskenaarioita tarinoiden ympärille. Futurethonissa pystään hyvin lähellä chalengethonin tarinoita, mikä tarkoittaa sitä, että tämän thonin skenaarioissa ei lähdetä maalailemaan mahdollisuuksien maailmoja. Tämän thonin lopputuotteena on kuvaus(tarinoiden skenaariot), jossa tarinat ja esteet jakaantuvat neljään eri osaan:</p>
+                    <ul>
+                        <li>
+                            Tarinoiden skenaariot
+                            <ul>
+                                <li>
+                                    Vahvuuksien alueelliset skenaariot 
+                                    <ul>
+                                        <li>Osaaminen ja osaamisen kehittyminen</li>
+                                        <li>Palvelut</li>
+                                        <li>Verkostot, yhdessä tekemisen tahtotila (luottamus ihmisiin)</li>
+                                        <li>Yhteiset informaatioalustat?</li>                                        
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    Mahdollisuuksien ulkoiset skenaariot
+                                    <ul>                                        
+                                        <li>Monialaisen yhteistyön mahdollisuudet</li>
+                                        <li>Kansallisen osaamisen kehittyminen</li>
+                                        <li>Etäajattelun kehittyminen (virtuaalisuuden </li>
+                                        <li>Kestävät mahdollisuudet</li>
+                                        <li>Digitalisaation mahdollistama asioiden nopea levittäminen ja vaikuttaminen</li>
+                                    </ul>
+                                </li>                                    
+                            </ul>
+                        </li>
+                        <li>
+                            Esteiden skenaariot
+                            <ul>
+                                <li>
+                                    Heikkouksien alueelliset skenaariot
+                                    <ul>
+                                        <li>Tutkimus- ja kehitystoiminnan pirstaloituminen</li>
+                                        <li>Tarvittavien resurssien tavoittaminen</li>
+                                        <li>Toimintatapojen muuttaminen</li>
+                                        <li>Hanketoiminnan lyhytjänteisyys</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Uhkien ulkoiset skenaariot
+                                    <ul>
+                                        <li>Informaation määrä kasvaa nopeammin kuin sen sisäistäminen (asioiden ymmärtämisen vaikeus)</li>
+                                        <li>Erilaiset kohtaanto-ongelmat(aika, paikka, tieto, yms.)</li>
+                                        <li>Teknologinen epätasa-arvo</li>
+                                        <li>liiketoimintojen arvonluontiketjujen muutokset</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>                      
+                    </ul>
+
+                    <img src="futurethon.png" alt="Futurethon">
+                    <p>Lopputuloksena on tulevaisuuden kuvaus(skenaariot), joka muodostuu viidestä eri näkökulmasta. Sekenaariot pohjautuvat challengethonin tuotoksiin, joihin lisätään alueellisten vahvuuksien ja heikkouksien näkökulma, sekä ulkoisten mahdollisuuksien ja uhkien näkökulma. Skenaarioiden työstämiseen osallistuu kaksi rooli, joista tulevaisuuden mahdollistajat(esim. yritykset) liittävät skenaariot reaali maailmaan ja tulevaisuuden teoretisoijat(esim. opiskelijat) tarkastelevat skenaarioita ilmiöiden maailmojen kautta. Futurethonin skenaariot nojaavat olemassa oleviin rakenteisiin, jotta alkuperäisten haasteiden ratkaisu voisi perustua inkrementaalisiin parannuksiin.</p>
+                    
+                    <br>
+                    <h2>Imaginationthon</h2>
+                    <p>
+                        <i>Innovaatiot voidaan jakaa myös asteittaisiin\inkrementaalisiin (nykyisten tuotteiden, palveluiden ja toimintamallien parannukset) ja radikaaleihin (luovat uusia markkinoita ja pakottavat muuttamaan ajattelua)</i>
+                        <a href="https://fi.wikipedia.org/wiki/Innovaatio" target="_blank" class="reference">(Wikipedia)</a>.
+                        Imaginationthonissa luodaan pohjaa radikaaleille innovaatioille. Jotta radikaaleille innovaatioille löytyisi polttoainettta täytyy futurethonin skenaarioihin etsiä uusia näkökulmia. Imaginationthonissa uusia näkökulmia etsitään monitieteellisyyden ja monialaisuuden kautta. Ammattikorkeakouluissa monitieteellisyys on luonnollinen osa eri opetus aloja. Moniala-alaisuuus näkyy ammattikorkeakoulujen käynnissä olevissa tki-hankeissa ja menneissä tki-hankkeissa. On myös tärkeää, että kohtaa avointa kehittämismallia alkuperäinen haasteen kuvaaja (challengethon) ei osallistu tähän thoniin, jotta skenaariot pystyvät laajentuvat mahdollisimman ennakkoluulottomasti tutkimattomille alueille.
+                    </p>
+                    <img src="imaginationthon.png" alt="Imaginationthon">
+                    <br>
+                    <br>
+                    <p>
+                        Imaginationthonin lopputuotteena on ideoita, jota perustuvat  futurethonin skenaarioihin ja jakaantuvat monitieteellisesti ja monialaisesti laidasta laitaa. Tässä kohtaa avointa kehittämismallia pyritään saamaan aikaiseksi mahdollisimman laaja tuotosten(ideoiden) määrä.
+                    </p>
+                    <br>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </body>
+</html>

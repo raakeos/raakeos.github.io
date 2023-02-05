@@ -1,0 +1,42 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;;
+}
+
+/* p {
+    background-color: green;
+    border: 2px solid red;
+    border-radius: 10px;
+} */
+
+.reference {
+  font-style: oblique;
+  position: relative;
+  /*display: inline-block;*/
+  border-bottom: 1px dotted black;
+}
+
+
+.reference .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.reference:hover .tooltiptext {
+  visibility: visible;
+}
