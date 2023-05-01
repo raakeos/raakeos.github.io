@@ -9,8 +9,20 @@
 				<div id="navbarMenu" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav ml-auto"> 
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="contentloggerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Content Logging Solution</a>							
+							<a class="nav-link dropdown-toggle" href="#" id="picoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Raspberry Pi Pico Sensing Units</a>							
 						
+							<ul class="dropdown-menu" aria-labelledby="picoDropdown">
+								<li><a class="dropdown-item" onclick="openContent('pico_overview.html')">Overview</a></li>
+								<li><a class="dropdown-item" onclick="openContent('pico_basic_unit.html')">Pico Basic Sensing Unit</a></li>
+								<li><a class="dropdown-item item-disabled" href="#">Pico Developer Sensing Unit</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#" target="_blank">Source Codes</a></li>
+							</ul>
+						</li>
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="contentloggerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Content Logging Solution</a>							
+							
 							<ul class="dropdown-menu" aria-labelledby="contentloggerDropdown">
 								<li><a class="dropdown-item" onclick="openContent('contentlogger_overview.html')">Overview</a></li>
 								<li><a class="dropdown-item" onclick="openContent('rpi_install.html')">Raspberry PI Install</a></li>
