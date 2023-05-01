@@ -10,177 +10,32 @@
     </head>
     <body>
 		<div class="container">
-			<nav class="navbar navbar-expand-md navbar-light bg-light navbar-inverse navbar-fixed-top">
-				<a class="navbar-brand" href="index.html">
-					<img src="RaakeLogo.png" alt="Logo" style="width: 200px;">   
-				</a>
-				
-				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div id="navbarMenu" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav ml-auto"> 
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="contentloggerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Content Logging Solution</a>							
-						
-							<ul class="dropdown-menu" aria-labelledby="contentloggerDropdown">
-								<li><a class="dropdown-item" href="contentlogger_overview.html">Overview</a></li>
-								<li><a class="dropdown-item" href="contentlogger.html">ContentLogger</a></li>
-								<li><a class="dropdown-item" href="connectionnode.html">ConnectionNode</a></li>
-								<li><a class="dropdown-item" href="contentloggerapi.html">ContentLoggerAPI</a></li>
-								<li><a class="dropdown-item" href="contentorganizer.html">ContentOrganizer</a></li>
-								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="contentloggerwebui">ContentLogger WebUI</a></li>
-							</ul>
-						</li>
-						
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="imotDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Information Model of Things</a>							
-						
-							<ul class="dropdown-menu" aria-labelledby="imotDropdown">
-								<li><a class="dropdown-item" href="imot_overview.html">Overview</a></li>
-								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model Browser</a></li>
-								<li><a class="dropdown-item" href="informationmodelbrowser.html">Information Model WebUI</a></li>
-							</ul>
-						</li>
-						
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="integrationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Integration</a>							
-						
-							<ul class="dropdown-menu" aria-labelledby="integrationDropdown">
-								<li><a class="dropdown-item" href="integration_overview.html">Overview</a></li>
-								<li><a class="dropdown-item" href="mariadb.html">MariaDB</a></li>
-								<li><a class="dropdown-item" href="grfana.html">Grafana</a></li>
-							</ul>
-						</li>
-						
-						
-					</ul>
-				</div>
-			</nav>
-			
-			<div id="section1">
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-sm-12">
-						<p class="basic_text">
-						</p>
-					</div>
-				</div>
-				
-				<div class="row">					
-					<div class="col-sm-12">
-						<h1>Versatility through simplicity</h1>
-						<p class="basic_text">
-							Software solutions are often very versatility. There are many different modules that communicate with each other. Many different interfaces are needed, the same things are done in several different places, changes affect everywhere, etc.
-						</p>
-						<p class="basic_text">
-							An open software solution allows for the multidimensionality of software solutions, but it does through simplicity.
-						</p>
-						<img src="rlog_8h__dep__incl.png" class="img-thumbnail" alt="System complexity">
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-sm-12">
-						<h1>Static vs. Dynamic</h1>
-						<p class="basic_text">
-							The picture below shows a basic query, where Module1 asks from Module2 for the value of the temperature sensor. In the case of this example, Module2 return json will return all the data that Module1 needs to process the data.
-						</p>
-						<img src="images/BasicQuery.png" class="rounded mx-auto d-block" alt="Basic Query">
-						<br>
-						<p class="basic_text">
-							When we look at the returned json content, we notice that only the number 19.67 is variable data. All other information is permanent, which means that this information only needs to be transmitted once.
-						</p>
-						<img src="images/BasicQueryDimmed.png" class="rounded mx-auto d-block" alt="Basic Query Static vs. Dynamic">
-						<br>
-						<p class="basic_text">
-							The number 19.67 is dynamic data, which in the case of the example is a string. When computer needs to process the number, it must converts to the number format so that the computer can understand it, such as float or double. The value range of a float number is 1.175494351 E - 38 to 3.402823466 E + 38. If we want to store or transfer a float number, we need to handle at least 14 bytes. But...
-						</p>
-						<br>
-						<p class="basic_text">
-							A float number only needs 4 bytes for the computer, which means that only this number of bytes (32 bits) is needed if we keep dynamic and static data separate.
-						</p>
-						<br>
-						<br>
-						<p class="basic_text">
-							In a data model-based structure, static information is stored in a data model. Program modules load all the necessary information for their operation when they start execution (only once). This enables an extremely simple interface which can be use to transfer dynamic content. All the information explaining the dynamic content is separate, so the same interface structure can be used to transfer almost all data types (int, text, image, etc.).
-						</p>
-						<img src="images/BasicIMQuery.png" class="rounded mx-auto d-block" alt="Basic information model based query">
-						
-						<br>
-						<p class="basic_text">
-							In an informatio model-based solution, static information is not transferred with each query, which enables the utilization of dynamic information in new ways. This is possible because new innovations are often incremental. Existing things are combined in new ways. In an information model-based solution, a new purpose of use does not set new requirements for the module who is generating dynamic data.
-						</p>
-						<img src="images/MultipleIMQueries.png" class="rounded mx-auto d-block" alt="Basic information model based query">
-						
-						
-						<br>
-						<p class="basic_text">
-						</p>
-						
-						<br>
-						<p class="basic_text">
-						</p>
-						
-						
-					</div>
-				</div>
-				
-				
-				<br>
-				<br>
-				
-				
-				<p class="quote">"Most innovations fail. </p>
-				<p class="quote">And companies that don't innovate die."</p>
-				<p class="quote">---Henry Chesbrough--- </p>
-				<br>
-				<div class="row">
-					<div class="col-sm-6"><br></div>
-					<div class="col-sm-6"><br></div>
-				</div>
-				
-				<div class="row">
-					<div class="col-sm-6">
-						<p class="basic_text">People who communicate at the interface of structural gaps are critical for organizational learning and creativity. It is interesting that innovations are not only born in a familiar and safe environment, but in order to create innovations, distance is also needed, which creates differences in ways of thinking, knowledge bases, concepts, expertise and so on. In a more open development activity, new types of distances inevitably arise, which can be a significant factor in improving the productivity of development activities.</p>
-					</div>
-					<div class="col-sm-6">
-						<img src="gap-ge7aec9564_1280.png" alt="Logo" style="width: 400px;"> 
-					</div>
-				</div> 
-				<div class="row">
-					<div class="col-sm-6">
-						<img src="ContentLoggerOverview-Thing.png" alt="Logo"> 
-						<p class="basic_text">Järjestelmät muodostuvat toisiinsa kytkeytyneistä asioista. Asioilla on ominaisuuksia. Järjestelmän toiminnan kannalta on tärkeää kyetä hallitsemaan tätä asioiden muodostamaan kokonaisuutta. Avoimessa ratkaisussa kokonaisuuden hallinnasta tehdään hyvin yksinkertaista, jolloin koko järjestelmän hallinnasta tulee yksinkertaisempaa.</p>
-						<p class="basic_text">Avoimessa ratkaisussa tieto jakautuu staattiseen ja dynaamiseen tietoon. Koska staattinen tieto ei muutu ohjelman suorituksen aikana, sitä on turha siirtää ohjelmamodiilista toiseen. Tämä tarkoittaa, että rajapintojen yli siirtyy raakatietoa jonka tulkintaa ohjelma tarvitsee staattista tietoa. Ohjelmamoduuli lataa staattisen tiedon käynnistyessään. Tältä osin staattinen tieto onkin kuin ohjelma moduulin konfigutaatiotiedosto.</p>
-						<p class="basic_text">Avoimessa ratkaisussa staattinen tieto ei kuitenkaan ole pelkästään yhtä ohjelmamoduulia varten. Samaa tietoa voidaan katsoa lukemattomista eri näkökulmista. Esimerkiksi lämpötilatieto voi olla osa lämpömittariohjelmaa, se voi olla osa tutkielmaa, se voi olla osa rakennuksen olosuhdetietoja, yms. Avoimessa ratkaisussa sama asia voidaankin liittää minkä tahansa tietorakenteen osaksi.</p>
-					</div>
-					<div class="col-sm-6">
-						<img src="ContentLoggerOverview-Thing.png" class="img-thumbnail" alt="Thing">
-						<p class="basic_text">Systems consist of interconnected things. Things have properties. In terms of the operation of the system, it is important to be able to manage this whole of things. In an open solution, the management of the whole is made very simple, which makes the management of the entire system simpler.</p>
-						<p class="basic_text">In an open solution, information is divided into static and dynamic information. Since static data does not change during program execution, it is unnecessary to transfer it from one program module to another. This means that raw data is transferred across the interfaces, which the program needs static data to interpret. The program module loads static information when it starts. In this respect, static information is like the configuration file of a program module.</p>
-						<p class="basic_text">However, in an open solution, static information is not only for one program module. The same information can be viewed from countless different perspectives. For example, temperature data can be part of a thermometer program, it can be part of a thesis, it can be part of building condition data, etc. In an open solution, the same thing can be connected as part of any data structure.</p>
-					</div>
-				</div>
-
-				
-
-			</div>
-			<br>
-			<br>
+			<div id="navbarElement"></div>
+			<div id="contentElement"></div>
 		</div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-		
+				
 		<script>
 			$(document).ready(function(){
-				$("navbarElement").load("navbar.html");  
-			});
-		</script>
+				openNavbar(); 
+				openContent('overview.html');
+			});	
+			
+			function openNavbar(){
+				fetch('navbar.html')
+				  .then(response=> response.text())
+				  .then(text=> document.getElementById('navbarElement').innerHTML = text);  
+			};
 
+			function openContent(contenturl){
+				fetch(contenturl)
+				  .then(response=> response.text())
+				  .then(text=> document.getElementById('contentElement').innerHTML = text);  
+			};
+			
+		</script>
+		
     </body>
 </html> 
