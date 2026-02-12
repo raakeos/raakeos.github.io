@@ -1,237 +1,397 @@
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAAKE – Avoimen teknologian tarina</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAAKE – Avoimen teknologian tarina (interaktiivinen)</title>
   <style>
-    :root {
-      --green: #009845;
-      --green-dark: #006b32;
-      --green-light: #e7f7ed;
-      --ink: #0f172a;
-      --muted: #475569;
-      --bg: #f6f8f7;
-      --card: #ffffff;
-      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    :root{
+      --green:#009845; /* brand */
+      --green-2:#0fb15a;
+      --green-dark:#046033;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#f6f8f7;
+      --card:#ffffff;
+      --accent:#e6f5ec;
+      --border:#e5e7eb;
+      --shadow:0 8px 28px rgba(0,0,0,.08);
+    }
+    [data-theme="dark"]{
+      --ink:#e5e7eb;
+      --muted:#cbd5e1;
+      --bg:#0b1220;
+      --card:#0e1628;
+      --accent:#0f2c1f;
+      --border:#1e293b;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      display: flex;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
+      display:grid; grid-template-columns:280px 1fr; grid-template-rows:auto;
     }
 
     /* Sidebar */
-    .sidebar {
-      width: 280px;
-      background: linear-gradient(180deg, var(--green) 0%, var(--green-dark) 100%);
-      padding: 40px 30px;
-      color: white;
-      min-height: 100vh;
-      box-shadow: 5px 0 20px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
+    .sidebar{
+      background:linear-gradient(180deg,var(--green) 0%, var(--green-2) 60%, var(--green-dark) 100%);
+      color:#fff; padding:28px 22px; position:sticky; top:0; align-self:start; height:100vh; overflow:auto;
+      box-shadow:4px 0 18px rgba(0,0,0,.15);
     }
-    .sidebar img {
-      width: 160px;
-      margin-bottom: 30px;
-      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
-    }
-    .sidebar h1 {
-      font-size: 26px;
-      font-weight: 800;
-      margin: 0 0 10px 0;
-      line-height: 1.2;
-    }
-    .sidebar p {
-      font-size: 15px;
-      opacity: 0.9;
-      margin: 0 0 20px;
-    }
+    .brand{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+    .brand img{height:56px; width:auto; filter:drop-shadow(0 2px 0 rgba(0,0,0,.18))}
+    .brand h1{font-size:20px; margin:0; line-height:1.2; font-weight:800}
+    .lead{opacity:.96; margin:6px 0 16px}
 
-    .tag {
-      display: inline-block;
-      background: rgba(255,255,255,0.13);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.25);
-      margin: 6px 6px 0 0;
-    }
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 18px}
+    .tag{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-size:12px; padding:6px 10px; border-radius:999px}
+
+    .nav{margin-top:8px}
+    .nav a{display:block; color:#fff; text-decoration:none; padding:8px 10px; border-radius:10px; opacity:.9}
+    .nav a:hover, .nav a.active{background:rgba(255,255,255,.18); opacity:1}
+
+    .sidebar .controls{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+    button, .btn{background:#fff; color:var(--green-dark); border:none; padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer}
+    .ghost{background:transparent; border:1px solid rgba(255,255,255,.55); color:#fff}
+
+    /* Header */
+    header.hero{grid-column:1 / -1; display:none}
 
     /* Main content */
-    .content {
-      flex: 1;
-      padding: 50px 60px;
-      max-width: 1100px;
-    }
+    main{padding:34px 28px; max-width:1150px}
 
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 60px 0 14px;
-    }
-    .section-title .bar {
-      width: 6px;
-      height: 25px;
-      background: var(--green);
-      border-radius: 4px;
-    }
-    .section-title h2 {
-      font-size: 26px;
-      margin: 0;
-      font-weight: 700;
-      color: var(--green-dark);
-    }
+    .section-title{display:flex; align-items:center; gap:12px; margin:36px 0 14px}
+    .bar{width:6px; height:24px; background:var(--green); border-radius:8px}
+    h2{margin:0; color:var(--green-dark)}
 
-    /* Cards */
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 26px;
-      margin-bottom: 28px;
-      box-shadow: var(--shadow);
-    }
-    .card h3 {
-      margin-top: 0;
-      font-size: 20px;
-      color: var(--green-dark);
-    }
-    .pill {
-      display: inline-block;
-      background: var(--green-light);
-      border: 1px solid #bdebd0;
-      padding: 6px 12px;
-      border-radius: 999px;
-      color: var(--green-dark);
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .card p {
-      margin: 10px 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:22px}
+    .pill{display:inline-block; background:var(--accent); color:var(--green-dark); border:1px solid #bde6cd; padding:6px 12px; border-radius:999px; font-weight:700; font-size:13px}
+    p{margin:10px 0; color:var(--muted)}
 
-    /* Grid layouts */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
-    }
-    .col-4 { grid-column: span 4; }
-    .col-6 { grid-column: span 6; }
-    .col-12 { grid-column: span 12; }
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:span 12}
 
-    @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .content { padding: 30px 20px; }
-      .col-4, .col-6 { grid-column: span 12; }
-    }
+    @media (max-width: 990px){ body{grid-template-columns:1fr} .sidebar{position:relative; height:auto} }
+    @media (max-width: 900px){ .col-4, .col-6{grid-column:span 12} }
 
-    .caption {
-      font-size: 13px;
-      margin-top: 8px;
-      color: var(--muted);
-    }
+    /* Accordion */
+    details{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 18px; box-shadow:var(--shadow)}
+    summary{cursor:pointer; font-weight:700; color:var(--green-dark)}
+    details[open]{outline:2px solid var(--accent)}
+
+    /* Tabs */
+    .tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px}
+    .tab{background:var(--card); border:1px solid var(--border); padding:8px 12px; border-radius:999px; cursor:pointer; color:var(--muted)}
+    .tab[aria-selected="true"]{background:var(--accent); color:var(--green-dark); border-color:#bde6cd}
+    .panel{display:none}
+    .panel[aria-hidden="false"]{display:block}
+
+    /* Mockups */
+    .mock{border-radius:12px; background:linear-gradient(180deg,#ffffff,#f1f5f9)}
+    [data-theme="dark"] .mock{background:linear-gradient(180deg,#0f172a,#0b1220)}
+    svg{max-width:100%; height:auto; display:block}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.is-visible{opacity:1; transform:none}
+
+    /* Tooltip for timeline dots */
+    .tip{position:absolute; background:var(--ink); color:#fff; font-size:12px; padding:6px 8px; border-radius:6px; transform:translate(-50%, -130%); white-space:nowrap; opacity:0; pointer-events:none}
+
+    /* Theme toggle visually */
+    .theme-toggle{display:inline-flex; align-items:center; gap:8px}
+
+    /* Print */
+    @media print{ .sidebar{display:none} body{grid-template-columns:1fr} .card{box-shadow:none} }
   </style>
 </head>
-
 <body>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="RaakeLogo.png" alt="RAAKE logo">
-    <h1>RAAKE – Avoimen teknologian matka</h1>
-    <p>Tämä on rehellinen tarina ideasta: kevyt ratkaisu jalkapalloseuroille striimaukseen, analytiikkaan ja pelaajapalautteeseen.</p>
-
-    <div>
+  <aside class="sidebar" role="navigation" aria-label="Sivunavigaatio">
+    <div class="brand">
+      <img src="RaakeLogo.png" alt="RAAKE Open Solutions logo"/>
+      <h1>RAAKE – Tarina</h1>
+    </div>
+    <p class="lead">Rehellinen matka: kevyt alusta striimaukseen, pelin ymmärrystä tukevaan analytiikkaan ja pelaajakohtaiseen palautteeseen.</p>
+    <div class="tags" aria-label="Tunnisteet">
       <span class="tag">Avoin teknologia</span>
       <span class="tag">Älypuhelimet</span>
       <span class="tag">Juniorijalkapallo</span>
       <span class="tag">Oppiminen</span>
-      <span class="tag">Rehellinen matka</span>
+    </div>
+    <nav class="nav">
+      <a href="#alku">Mistä tämä alkoi?</a>
+      <a href="#kokonaisuus">Kokonaisuus</a>
+      <a href="#mockupit">Mockupit</a>
+      <a href="#vaihe">Missä mennään?</a>
+    </nav>
+    <div class="controls" style="margin-top:16px">
+      <button id="themeBtn" class="ghost theme-toggle" aria-pressed="false" aria-label="Vaihda teema">🌙 Tumma</button>
+      <button class="ghost" onclick="window.print()" aria-label="Tulosta sivu">🖨️ Tulosta</button>
     </div>
   </aside>
 
-  <!-- Main content -->
-  <main class="content">
-    
-    <!-- Story -->
-    <div class="section-title"><div class="bar"></div><h2>Mistä kaikki alkoi?</h2></div>
-
-    <div class="card">
-      <span class="pill">Lähtökohta</span>
-      <p>Seurojen arki on kiireistä: kuvaaminen jää tekemättä, analyysi on satunnaista ja palaute perustuu muistiin. Halusin selvittää: voisiko <strong>yksinkertainen, avoimen teknologian malli</strong> tuoda tähän arkeen selkeyttä tavalla, joka auttaa valmentajaa – ei kuormita.</p>
-      <p>Tämä ei ole valmis tuote. Tämä on matka. Pienin askelin kohti alustaa, joka toimii seurojen arjessa eikä niitä vastaan.</p>
-    </div>
-
-    <!-- What is being built -->
-    <div class="section-title"><div class="bar"></div><h2>Mikä kokonaisuus on mielessä?</h2></div>
-
-    <div class="grid">
-      <div class="card col-4">
-        <h3>1) Striimaus ilman kameramiestä</h3>
-        <p>Älypuhelin kentän laidalle. Automaattinen tallennus ja helppo jakaminen. Ei asennuksia, ei lisätyötä.</p>
+  <main>
+    <section id="alku" class="reveal">
+      <div class="section-title"><span class="bar"></span><h2>Mistä tämä alkoi?</h2></div>
+      <div class="card">
+        <span class="pill">Lähtökohta</span>
+        <p>Seurojen arjessa kuvaaminen jää helposti tekemättä, analyysi on satunnaista ja palaute nojautuu muistiin. Tavoite: selvittää, voisiko <strong>yksinkertainen, avoin ja edullinen</strong> malli tuoda arkeen selkeyttä – niin, että se todella auttaa valmentajaa eikä lisää työkuormaa.</p>
+        <p>Tämä ei ole valmis tuote. Tämä on matka. Etenen vaiheittain: <em>ensin striimaus</em>, sitten <em>perusanalyysi</em>, ja lopuksi <em>pelaajalle näkyvä palaute</em>.</p>
+        <details style="margin-top:10px">
+          <summary>Lisää taustasta</summary>
+          <p>Taustalla on oma valmennuskokemus ja tohtoriopintojen tutkimuskysymykset: miten edullinen videoteknologia ja avoimen lähdekoodin analytiikka voivat tukea oppimista, peliälyä ja motivaatiota.</p>
+        </details>
       </div>
+    </section>
 
-      <div class="card col-4">
-        <h3>2) Kevyt pelianalyysi</h3>
-        <p>Pelaajien ja pallon tunnistus, lämpökartat, syöttöpolut. Juuri tarpeeksi tietoa – ei datatulvaa.</p>
+    <section id="kokonaisuus" class="reveal">
+      <div class="section-title"><span class="bar"></span><h2>Mikä kokonaisuus on mielessä?</h2></div>
+      <div class="grid">
+        <div class="card col-4">
+          <h3>1) Striimaus ilman kameramiestä</h3>
+          <p>Älypuhelimet tai edulliset kamerat kentän laidalle. Automaattinen tallennus ja helppo jakaminen.</p>
+        </div>
+        <div class="card col-4">
+          <h3>2) Kevyt pelianalyysi</h3>
+          <p>Pelaajien ja pallon tunnistus, lämpökartat, syöttöverkko. Riittävän hyvä tieto päätösten tueksi – ei datatulvaa.</p>
+        </div>
+        <div class="card col-4">
+          <h3>3) Pelaajalle näkyvä edistyminen</h3>
+          <p>Yksilöllinen, visuaalinen palaute jokaisesta pelistä. Tavoite: vahvistaa motivaatiota ja jatkohalukkuutta.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card col-4">
-        <h3>3) Motivoiva pelaajapalaute</h3>
-        <p>Lyhyt, selkeä ja visuaalinen palaute jokaiselle pelaajalle. Näkyvä edistyminen vahvistaa motivaatiota.</p>
+    <section id="mockupit" class="reveal">
+      <div class="section-title"><span class="bar"></span><h2>Luonnoksia ja mockupeja</h2></div>
+      <div class="grid">
+        <!-- Phone mount mockup -->
+        <div class="card col-6">
+          <h3>Kännykkä kameratelineessä (mockup)</h3>
+          <div class="mock" aria-label="Puhelin telineessä">
+            <svg viewBox="0 0 520 360" role="img">
+              <rect x="0" y="300" width="520" height="60" fill="#e2e8f0" />
+              <rect x="254" y="170" width="12" height="130" rx="6" fill="#7c8b9a" />
+              <rect x="180" y="270" width="160" height="10" rx="5" fill="#7c8b9a" />
+              <rect x="200" y="280" width="120" height="8" rx="4" fill="#a5b1bd" />
+              <rect x="210" y="60" width="100" height="170" rx="18" fill="#0b1220" />
+              <rect x="216" y="70" width="88" height="150" rx="8" fill="#0f172a" />
+              <rect x="220" y="74" width="80" height="142" rx="6" fill="#071b12" />
+              <g>
+                <rect x="220" y="74" width="80" height="32" fill="url(#gradField)" />
+                <rect x="220" y="106" width="80" height="110" fill="#123b22" />
+                <line x1="260" y1="110" x2="260" y2="180" stroke="#7bd7a5" stroke-width="1" stroke-dasharray="4 4" />
+                <circle cx="260" cy="145" r="10" stroke="#7bd7a5" stroke-width="1" fill="none" />
+                <rect x="225" y="150" width="20" height="15" stroke="#7bd7a5" fill="none" />
+                <rect x="255" y="128" width="30" height="14" stroke="#7bd7a5" fill="none" />
+              </g>
+              <rect x="206" y="120" width="8" height="50" rx="3" fill="#7c8b9a" />
+              <rect x="318" y="120" width="8" height="50" rx="3" fill="#7c8b9a" />
+              <rect x="206" y="140" width="120" height="10" rx="5" fill="#a5b1bd" />
+              <defs>
+                <linearGradient id="gradField" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#22c55e"/>
+                  <stop offset="100%" stop-color="#16a34a"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <p class="caption">Kevyt, edullinen ja siirreltävä kuvausratkaisu kentän laidalle.</p>
+        </div>
+
+        <!-- Analytics mockups with tabs -->
+        <div class="card col-6" id="ana">
+          <h3>Analytiikkapaneelit (interaktiivinen)</h3>
+          <div class="tabs" role="tablist" aria-label="Analytiikkanäkymät">
+            <button class="tab" role="tab" aria-selected="true" aria-controls="p-heat" id="t-heat">Heatmap</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="p-pass" id="t-pass">Syöttöverkko</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="p-ev" id="t-ev">Tapahtumat</button>
+          </div>
+          <div class="panel mock" id="p-heat" role="tabpanel" aria-hidden="false" aria-labelledby="t-heat">
+            <svg viewBox="0 0 520 300" role="img" aria-label="Heatmap">
+              <rect x="18" y="18" width="484" height="264" rx="12" fill="#ffffff" stroke="#e5e7eb" />
+              <rect x="40" y="40" width="440" height="220" rx="8" fill="url(#heat)" />
+              <defs>
+                <radialGradient id="heat" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#fb7185" stop-opacity="0.85"/>
+                  <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.65"/>
+                  <stop offset="100%" stop-color="#22c55e" stop-opacity="0.4"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="panel mock" id="p-pass" role="tabpanel" aria-hidden="true" aria-labelledby="t-pass">
+            <svg viewBox="0 0 520 300" role="img" aria-label="Syöttöverkko">
+              <rect x="18" y="18" width="484" height="264" rx="12" fill="#ffffff" stroke="#e5e7eb" />
+              <g stroke="#94a3b8" stroke-width="2" opacity=".9">
+                <line x1="150" y1="100" x2="240" y2="80" />
+                <line x1="150" y1="100" x2="210" y2="180" />
+                <line x1="240" y1="80" x2="360" y2="120" />
+                <line x1="210" y1="180" x2="360" y2="120" />
+              </g>
+              <g fill="#10b981">
+                <circle cx="150" cy="100" r="10" />
+                <circle cx="240" cy="80" r="10" />
+                <circle cx="210" cy="180" r="10" />
+                <circle cx="360" cy="120" r="10" />
+              </g>
+            </svg>
+          </div>
+          <div class="panel mock" id="p-ev" role="tabpanel" aria-hidden="true" aria-labelledby="t-ev">
+            <div style="position:relative">
+              <svg viewBox="0 0 520 300" role="img" aria-label="Tapahtumaviiva">
+                <rect x="18" y="18" width="484" height="264" rx="12" fill="#ffffff" stroke="#e5e7eb" />
+                <line x1="60" y1="160" x2="460" y2="160" stroke="#cbd5e1" stroke-width="4" />
+                <g id="dots" fill="#22c55e">
+                  <circle cx="120" cy="160" r="8" data-tip="5' Maalipaikka" />
+                  <circle cx="200" cy="160" r="8" data-tip="17' Laukaus" fill="#3b82f6" />
+                  <circle cx="300" cy="160" r="8" data-tip="41' Pääpallo voitettu" fill="#f59e0b" />
+                  <circle cx="420" cy="160" r="8" data-tip="67' Maali" />
+                </g>
+              </svg>
+              <div id="tooltip" class="tip" hidden>info</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Player feedback full width -->
+        <div class="card col-12">
+          <h3>Pelaajapalautteen esimerkkisivu (mockup)</h3>
+          <div class="mock">
+            <svg viewBox="0 0 1040 520" role="img" aria-label="Pelaajapalaute mockup">
+              <rect x="0" y="0" width="1040" height="70" fill="var(--accent)" />
+              <text x="24" y="44" font-size="20" fill="#0f5132" font-weight="bold">Pelaajapalaute – #10 Virtanen</text>
+              <rect x="20" y="90" width="300" height="400" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+              <circle cx="170" cy="150" r="46" fill="#e2e8f0" />
+              <text x="120" y="220" font-size="16" fill="#334155">Pelipaikka: KESKIKENTTÄ</text>
+              <text x="120" y="245" font-size="14" fill="#64748b">Ottelu: RAAKE–KPV U17</text>
+              <text x="120" y="270" font-size="14" fill="#64748b">Peliaika: 72 min</text>
+              <text x="40" y="320" font-size="13" fill="#334155">Syöttöprosentti</text>
+              <rect x="40" y="330" width="240" height="10" rx="5" fill="#e5e7eb" />
+              <rect x="40" y="330" width="192" height="10" rx="5" fill="#22c55e" />
+              <text x="290" y="338" font-size="12" fill="#334155">80%</text>
+              <text x="40" y="360" font-size="13" fill="#334155">Voitetut kaksinkamppailut</text>
+              <rect x="40" y="370" width="240" height="10" rx="5" fill="#e5e7eb" />
+              <rect x="40" y="370" width="156" height="10" rx="5" fill="#10b981" />
+              <text x="290" y="378" font-size="12" fill="#334155">65%</text>
+              <text x="40" y="400" font-size="13" fill="#334155">Skannausten määrä</text>
+              <rect x="40" y="410" width="240" height="10" rx="5" fill="#e5e7eb" />
+              <rect x="40" y="410" width="180" height="10" rx="5" fill="#3b82f6" />
+              <text x="290" y="418" font-size="12" fill="#334155">75%</text>
+              <rect x="340" y="90" width="680" height="186" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+              <text x="360" y="112" font-size="14" fill="#334155">Pelin rytmi & lämpökartta</text>
+              <rect x="360" y="125" width="640" height="130" rx="8" fill="url(#heat2)" />
+              <rect x="340" y="296" width="320" height="194" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+              <text x="360" y="318" font-size="14" fill="#334155">Syöttösuunnat (%)</text>
+              <g transform="translate(520,410)">
+                <circle r="70" fill="#e2e8f0" />
+                <path d="M0 0 L70 0 A70 70 0 0 1 -60.6 35.9 Z" fill="#22c55e"/>
+                <path d="M0 0 L-60.6 35.9 A70 70 0 0 1 -21.6 -66.6 Z" fill="#10b981"/>
+                <path d="M0 0 L-21.6 -66.6 A70 70 0 0 1 70 0 Z" fill="#3b82f6"/>
+              </g>
+              <rect x="680" y="296" width="340" height="194" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+              <text x="700" y="318" font-size="14" fill="#334155">Keskeiset klipit</text>
+              <rect x="700" y="330" width="140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+              <rect x="860" y="330" width="140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+              <rect x="700" y="402" width="140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+              <rect x="860" y="402" width="140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+              <defs>
+                <radialGradient id="heat2" cx="50%" cy="50%" r="70%">
+                  <stop offset="0%" stop-color="#fb7185" stop-opacity="0.8"/>
+                  <stop offset="40%" stop-color="#f59e0b" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#22c55e" stop-opacity="0.35"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <p class="caption">Ajatus: palaute on lyhyt, visuaalinen ja kannustava – ei datatulvaa.</p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Mockups section -->
-    <div class="section-title"><div class="bar"></div><h2>Luonnoksia ja mockupeja</h2></div>
-
-    <div class="grid">
-
-      <!-- Phone mount mockup -->
-      <div class="card col-6">
-        <h3>Kännykkä kameratelineessä</h3>
-        <!-- SVG omitted to save space; same as previous version -->
-        <p class="caption">Kevyt ja siirreltävä kuvausratkaisu kentän laidalle.</p>
+    <section id="vaihe" class="reveal">
+      <div class="section-title"><span class="bar"></span><h2>Missä mennään nyt?</h2></div>
+      <div class="card">
+        <p>Työn alla on Proof of Concept: perusstriimaus, ensimmäiset analyysit ja pelaajapalautteen malli. Iteroin pienissä askelissa yhdessä valmentajien kanssa. Jos haluat katsoa luonnoksia tai kommentoida, se olisi arvokasta.</p>
+        <div class="grid" style="margin-top:8px">
+          <div class="col-4"><details open><summary>Striimaus</summary><p>Puhelin + teline + pilvitallennus. Tavoite: 1‑napin käynnistys.</p></details></div>
+          <div class="col-4"><details><summary>Analytiikka</summary><p>Perusseuranta: pelaajat, pallo, lämpökartta, syöttöverkko.</p></details></div>
+          <div class="col-4"><details><summary>Palaute</summary><p>Lyhyt raportti, johon on helppo palata harjoituksissa.</p></details></div>
+        </div>
       </div>
-
-      <!-- Analytics mockup -->
-      <div class="card col-6">
-        <h3>Analytiikkapaneelit</h3>
-        <!-- SVG omitted to save space -->
-        <p class="caption">Lämpökartat, syöttöverkot ja tapahtumat.</p>
-      </div>
-
-      <!-- Player feedback -->
-      <div class="card col-12">
-        <h3>Pelaajapalautteen esimerkkisivu</h3>
-        <!-- SVG omitted for brevity -->
-        <p class="caption">Palaute, joka on lyhyt, selkeä ja kannustava.</p>
-      </div>
-
-    </div>
-
-    <!-- Status -->
-    <div class="section-title"><div class="bar"></div><h2>Missä mennään nyt?</h2></div>
-
-    <div class="card">
-      <p>Työn alla on Proof of Concept: perusstriimaus, ensimmäinen analytiikka ja palaute. Etenen vaiheittain ja testaan ratkaisuja valmentajien kanssa. Kaikki palaute on arvokasta.</p>
-    </div>
-
+    </section>
   </main>
 
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const setTheme = (dark)=>{
+      document.body.setAttribute('data-theme', dark? 'dark' : 'light');
+      themeBtn.textContent = dark? '☀️ Vaalea' : '🌙 Tumma';
+      themeBtn.setAttribute('aria-pressed', dark);
+    }
+    // initial
+    setTheme(prefersDark.matches);
+    themeBtn.addEventListener('click', ()=>{
+      const dark = document.body.getAttribute('data-theme') !== 'dark';
+      setTheme(dark);
+    });
+
+    // Sidebar active link on scroll
+    const links = document.querySelectorAll('.nav a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const id = '#' + e.target.id;
+        const link = document.querySelector(`.nav a[href="${id}"]`);
+        if(e.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          link && link.classList.add('active');
+        }
+      });
+    }, {rootMargin: '-40% 0px -60% 0px', threshold: 0});
+    sections.forEach(s=> s && obs.observe(s));
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revObs = new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('is-visible'); revObs.unobserve(e.target); }
+    }), {threshold:.1});
+    reveals.forEach(el=>revObs.observe(el));
+
+    // Analytics tabs
+    const tabButtons = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabButtons.forEach(b=>{ b.setAttribute('aria-selected','false'); });
+        panels.forEach(p=> p.setAttribute('aria-hidden','true'));
+        btn.setAttribute('aria-selected','true');
+        document.getElementById(btn.getAttribute('aria-controls')).setAttribute('aria-hidden','false');
+      });
+    });
+
+    // Timeline tooltip
+    const tip = document.getElementById('tooltip');
+    document.getElementById('p-ev').addEventListener('mousemove', (e)=>{
+      const target = e.target;
+      if(target && target.tagName === 'circle' && target.dataset.tip){
+        const rect = target.getBoundingClientRect();
+        tip.textContent = target.dataset.tip;
+        tip.style.left = rect.left + rect.width/2 + 'px';
+        tip.style.top = rect.top + window.scrollY + 'px';
+        tip.hidden = false; tip.style.opacity = 1;
+      } else {
+        tip.hidden = true; tip.style.opacity = 0;
+      }
+    });
+  </script>
 </body>
 </html>
